@@ -726,15 +726,13 @@ function toggleLLM(){
 }
 
 function downloadResume(e){
-  e.preventDefault();
-  const html = document.documentElement.outerHTML;
-  const blob = new Blob([html], {type:'text/html'});
-  const url = URL.createObjectURL(blob);
+  if(e) e.preventDefault();
   const a = document.createElement('a');
-  a.href = url;
-  a.download = 'Bhuvaneshwari_Thammanaboina_PM_Resume.html';
+  a.href = '/Bhuvaneshwari_Resume.pdf';
+  a.download = 'Bhuvaneshwari_Thammanaboina_Resume.pdf';
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  a.remove();
 }
 </script>
 
