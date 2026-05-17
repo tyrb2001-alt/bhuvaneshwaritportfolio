@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Bhuvaneshwari" },
+      { name: "description", content: "A web application that redesigns the \"scroll to explore\" feature for a portfolio, enabling navigation between sections." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Bhuvaneshwari" },
+      { property: "og:description", content: "A web application that redesigns the \"scroll to explore\" feature for a portfolio, enabling navigation between sections." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Bhuvaneshwari" },
+      { name: "twitter:description", content: "A web application that redesigns the \"scroll to explore\" feature for a portfolio, enabling navigation between sections." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/56c9f5f9-c15f-4b5f-a641-57d5d7a5f842/id-preview-b596db41--41460f96-6656-4281-afe8-f1201fb1bbab.lovable.app-1779010382340.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/56c9f5f9-c15f-4b5f-a641-57d5d7a5f842/id-preview-b596db41--41460f96-6656-4281-afe8-f1201fb1bbab.lovable.app-1779010382340.png" },
     ],
     links: [
       {
