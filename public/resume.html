@@ -239,6 +239,59 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem;te
   section{padding:4.5rem 0}
   .cs-h{grid-template-columns:1fr}
 }
+/* === Readability boost: larger, more attractive typography === */
+body{font-size:17.5px;line-height:1.75}
+.nav-logo{font-size:1.15rem;letter-spacing:0.04em}
+.nav-links a{font-size:0.82rem}
+.nav-cta{font-size:0.82rem;padding:0.55rem 1.2rem}
+.eyebrow{font-size:0.78rem;letter-spacing:0.16em}
+h2{font-size:clamp(2.4rem,4.8vw,3.6rem);letter-spacing:-0.01em}
+.hero-mono{font-size:0.82rem;letter-spacing:0.18em}
+.hero-name{font-size:clamp(3.2rem,6.2vw,5.6rem);letter-spacing:-0.02em}
+.hero-role{font-size:0.95rem;letter-spacing:0.08em}
+.hero-bio{font-size:1.1rem;line-height:1.8;max-width:560px;color:var(--ink2)}
+.tag{font-size:0.72rem;padding:0.35rem 0.85rem}
+.btn{font-size:0.95rem;padding:0.9rem 2rem}
+.sp-label{font-size:0.78rem;letter-spacing:0.2em}
+.sp-index{font-size:0.76rem}
+.ps-t{font-size:1.08rem}
+.ps-d{font-size:0.88rem;line-height:1.65}
+.pc-t{font-size:1.1rem}
+.pc-b{font-size:0.92rem;line-height:1.7}
+.cs-title{font-size:1.65rem}
+.cs-sub{font-size:0.98rem;line-height:1.65}
+.csbul li{font-size:0.98rem;line-height:1.7}
+.ms-val{font-size:2.4rem}
+.ms-lab{font-size:0.78rem}
+.sk-n{font-size:0.98rem}
+.sk-p{font-size:0.78rem}
+.tc{font-size:0.78rem;padding:0.3rem 0.7rem}
+.bc-title{font-size:1.12rem}
+.bc-desc{font-size:0.9rem;line-height:1.7}
+.ab-bio p{font-size:1.08rem;line-height:1.9}
+.okr-obj{font-size:0.96rem}
+.okr-krs li{font-size:0.88rem;line-height:1.65}
+.edu-d{font-size:1.08rem}
+.edu-s{font-size:0.9rem}
+.jev{font-size:0.94rem}
+.con-left p{font-size:1.08rem;line-height:1.85}
+.avail{font-size:0.82rem;padding:0.6rem 1.2rem}
+.cl-icon{width:44px;height:44px;font-size:1.2rem}
+.cl-lab{font-size:0.7rem}
+.cl-val{font-size:1rem}
+.mv{font-size:1.6rem}
+.ml{font-size:0.72rem}
+.cf-h{font-size:0.78rem;letter-spacing:0.14em}
+.cfl{font-size:0.72rem}
+.cfc{font-size:0.92rem;line-height:1.65}
+.cs-st{font-size:0.74rem;letter-spacing:0.14em}
+.ct{font-size:0.7rem;padding:0.22rem 0.7rem}
+.co-v{font-size:1.5rem}
+.co-l{font-size:0.7rem}
+footer{font-size:0.74rem;padding:2rem 1.5rem}
+nav{padding:1.1rem 2rem}
+.nav-links{gap:2.4rem}
+@media (max-width:768px){ body{font-size:16.5px} .nav-cta{display:none} }
 </style>
 </head>
 <body>
@@ -252,6 +305,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem;te
     <li><a href="#blog">Teardowns</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <a href="#" class="nav-cta" onclick="downloadResume(event)">Download Resume ↓</a>
 </nav>
 
 <!-- HERO -->
@@ -726,15 +780,13 @@ function toggleLLM(){
 }
 
 function downloadResume(e){
-  e.preventDefault();
-  const html = document.documentElement.outerHTML;
-  const blob = new Blob([html], {type:'text/html'});
-  const url = URL.createObjectURL(blob);
+  if(e) e.preventDefault();
   const a = document.createElement('a');
-  a.href = url;
-  a.download = 'Bhuvaneshwari_Thammanaboina_PM_Resume.html';
+  a.href = '/Bhuvaneshwari_Resume.pdf';
+  a.download = 'Bhuvaneshwari_Thammanaboina_Resume.pdf';
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  a.remove();
 }
 </script>
 
