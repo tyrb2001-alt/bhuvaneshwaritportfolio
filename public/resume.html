@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhuvaneshwari Thammanaboina | Product Manager</title>
+<meta name="description" content="Data-driven APM with 2+ years building AI-powered products, analytics platforms, and user engagement solutions in B2B SaaS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=DM+Sans:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#faf9f7;--bg2:#f2f0ec;--bg3:#e8e4de;--bg4:#d9d3c8;
+  --border:rgba(42,36,28,0.12);--border2:rgba(42,36,28,0.22);
+  --ink:#1a1410;--ink2:#3d3328;--ink3:#7a6e62;
+  --accent:#1a1410;--accent-dim:rgba(42,36,28,0.06);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden;font-style:normal}
+*{font-style:normal!important}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--ink);border-radius:2px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(250,249,247,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--serif);font-size:1rem;color:var(--ink);text-decoration:none;letter-spacing:0.02em;font-weight:400}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.72rem;font-weight:500;color:var(--ink3);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:0.72rem;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--ink);padding:0.4rem 1rem;border-radius:3px;text-decoration:none;letter-spacing:0.06em;transition:all 0.2s}
+.nav-cta:hover{background:var(--ink);color:var(--bg)}
+
+section{padding:7rem 0}
+.container{max-width:1140px;margin:0 auto;padding:0 2.5rem}
+.eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--mono);font-size:0.7rem;color:var(--ink3);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--ink)}
+h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:0.5rem}
+.hl{color:var(--ink)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden;background:var(--bg)}
+#hero::before{display:none}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center;width:100%}
+.hero-mono{font-family:var(--mono);font-size:0.72rem;color:var(--ink3);letter-spacing:0.14em;margin-bottom:1.25rem}
+.hero-name{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:400;line-height:0.95;color:var(--ink);margin-bottom:0.4rem}
+.hero-name span{display:block;color:var(--ink);font-weight:400}
+.hero-role{font-family:var(--mono);font-size:0.8rem;color:var(--ink3);margin-bottom:1.5rem;letter-spacing:0.06em}
+.hero-bio{font-size:0.95rem;color:var(--ink2);line-height:1.8;max-width:500px;margin-bottom:2rem}
+.tags{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:2.5rem}
+.tag{font-family:var(--mono);font-size:0.62rem;padding:0.28rem 0.7rem;border-radius:2px;border:1px solid var(--border2);letter-spacing:0.05em;color:var(--ink2);background:var(--bg2)}
+.tag-g,.tag-o,.tag-b,.tag-y{border-color:var(--border2);color:var(--ink2);background:var(--bg2)}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;font-family:var(--sans);font-size:0.82rem;font-weight:500;text-decoration:none;border-radius:3px;transition:all 0.2s}
+.btn-a{background:var(--bg);color:var(--ink);border:1.5px solid var(--ink)}.btn-a:hover{background:var(--ink);color:var(--bg)}
+.btn-g{background:var(--bg);color:var(--ink);border:1.5px solid var(--ink)}.btn-g:hover{background:var(--ink);color:var(--bg)}
+
+/* DASHBOARD */
+.dash{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.dash-bar{background:var(--bg3);padding:0.7rem 1rem;display:flex;align-items:center;gap:0.5rem;border-bottom:1px solid var(--border)}
+.d-dot{width:8px;height:8px;border-radius:50%}
+.dash-label{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);margin-left:auto}
+.dash-body{padding:1.25rem}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;margin-bottom:1rem}
+.mc{background:var(--bg3);border-radius:6px;padding:0.85rem 1rem}
+.mv{font-family:var(--mono);font-size:1.35rem;font-weight:600;line-height:1;color:var(--ink)}
+.ml{font-size:0.62rem;color:var(--ink3);margin-top:0.25rem;letter-spacing:0.05em;text-transform:uppercase}
+.md{font-family:var(--mono);font-size:0.6rem;margin-top:0.15rem;color:var(--ink2)}
+.gv{color:var(--ink)}.ov{color:var(--ink)}.bv{color:var(--ink)}.yv{color:var(--ink)}
+.br{margin-bottom:0.85rem}
+.brl{display:flex;justify-content:space-between;font-size:0.62rem;color:var(--ink3);margin-bottom:0.3rem;letter-spacing:0.03em}
+.bt{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.bf{height:100%;border-radius:2px;background:var(--ink)}
+.ml-list{display:flex;flex-direction:column;gap:0.35rem}
+.ml-item{display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;padding:0.38rem 0.6rem;background:var(--bg3);border-radius:4px}
+.ml-item span{color:var(--ink2)}
+.badge{font-family:var(--mono);font-size:0.58rem;padding:0.18rem 0.45rem;border-radius:2px;background:var(--bg4);color:var(--ink2)}
+
+/* STRIP */
+.mstrip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0}
+.mstrip-inner{display:flex;justify-content:space-around;max-width:1140px;margin:0 auto;padding:0 2.5rem}
+.ms-item{text-align:center}
+.ms-val{font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--ink);line-height:1}
+.ms-lab{font-size:0.68rem;color:var(--ink3);margin-top:0.3rem;letter-spacing:0.06em;text-transform:uppercase}
+
+/* PROCESS */
+#process{background:var(--bg)}
+.psteps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3rem;position:relative}
+.psteps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:var(--border2);z-index:0}
+.ps{text-align:center;padding:0 0.75rem;position:relative;z-index:1}
+.ps-n{width:54px;height:54px;border-radius:50%;border:1.5px solid var(--ink);background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.72rem;color:var(--ink);margin:0 auto 1rem;transition:all 0.3s;font-weight:500}
+.ps:hover .ps-n{background:var(--ink);color:var(--bg)}
+.ps-t{font-family:var(--serif);font-size:0.9rem;font-weight:400;color:var(--ink);margin-bottom:0.4rem}
+.ps-d{font-size:0.73rem;color:var(--ink3);line-height:1.55}
+.ps-tools{margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.25rem;justify-content:center}
+.pt{font-family:var(--mono);font-size:0.56rem;padding:0.12rem 0.4rem;background:var(--bg2);border:1px solid var(--border);color:var(--ink3);border-radius:2px}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.pc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:border-color 0.2s}
+.pc:hover{border-color:var(--ink)}
+.pc-i{font-size:1.3rem;margin-bottom:0.65rem}
+.pc-t{font-family:var(--serif);font-size:0.92rem;font-weight:400;color:var(--ink);margin-bottom:0.35rem}
+.pc-b{font-size:0.78rem;color:var(--ink3);line-height:1.6}
+
+/* CASE STUDIES */
+#casestudies{background:var(--bg2)}
+.cs{background:var(--bg);border:1px solid var(--border);border-radius:12px;margin-bottom:1.75rem;overflow:hidden;transition:border-color 0.2s}
+.cs:hover{border-color:var(--ink)}
+.cs-h{padding:2rem 2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;cursor:pointer}
+.cs-tags{display:flex;gap:0.45rem;flex-wrap:wrap;margin-bottom:0.65rem}
+.ct{font-family:var(--mono);font-size:0.6rem;padding:0.18rem 0.55rem;border-radius:2px;letter-spacing:0.06em;text-transform:uppercase;background:var(--bg2);color:var(--ink2);border:1px solid var(--border)}
+.cs-title{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--ink);margin-bottom:0.45rem}
+.cs-sub{font-size:0.83rem;color:var(--ink3);line-height:1.6}
+.cs-outs{display:flex;gap:0.85rem;flex-wrap:wrap}
+.co{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:0.55rem 0.9rem;text-align:center}
+.co-v{font-family:var(--mono);font-size:1.25rem;font-weight:600;line-height:1;color:var(--ink)}
+.co-l{font-size:0.6rem;color:var(--ink3);margin-top:0.18rem;text-transform:uppercase;letter-spacing:0.04em}
+.cs-bd{padding:0 2.5rem 2rem;display:none}
+.cs-bd.open{display:block}
+.cf{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.25rem}
+.cf-h{font-family:var(--mono);font-size:0.65rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:1rem}
+.cf-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cfb{border-left:2px solid var(--border2);padding-left:0.8rem}
+.cfl{font-size:0.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.25rem}
+.cfc{font-size:0.78rem;color:var(--ink2);line-height:1.55}
+.cs-st{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.65rem;margin-top:1.25rem}
+.csbul{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
+.csbul li{font-size:0.84rem;color:var(--ink2);padding-left:1.2rem;position:relative;line-height:1.6}
+.csbul li::before{content:'▸';position:absolute;left:0;color:var(--ink);font-size:0.62rem;top:0.25rem}
+.csbul li strong{color:var(--ink)}
+.tog{font-family:var(--mono);font-size:0.62rem;color:var(--ink);border:1px solid var(--ink);background:var(--bg);padding:0.38rem 0.85rem;border-radius:3px;cursor:pointer;white-space:nowrap;transition:all 0.2s;align-self:flex-start;margin-top:0.2rem}
+.tog:hover{background:var(--ink);color:var(--bg)}
+
+/* SKILLS */
+#skills{background:var(--bg)}
+.sk-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:3rem}
+.sk-st{font-family:var(--mono);font-size:0.65rem;color:var(--ink3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+.skrows{display:flex;flex-direction:column;gap:0.9rem}
+.skr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem}
+.sk-n{font-size:0.82rem;color:var(--ink)}
+.sk-p{font-family:var(--mono);font-size:0.65rem;color:var(--ink3)}
+.sk-tr{height:3px;background:var(--bg3);border-radius:1.5px;overflow:hidden}
+.sk-fi{height:100%;border-radius:1.5px;background:var(--ink)}
+.tm{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.tg{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.25rem}
+.tgn{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.7rem}
+.tchips{display:flex;flex-wrap:wrap;gap:0.35rem}
+.tc{font-family:var(--mono);font-size:0.65rem;padding:0.22rem 0.55rem;background:var(--bg);border:1px solid var(--border);color:var(--ink2);border-radius:2px}
+
+/* BLOG */
+#blog{background:var(--bg)}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.bc{background:var(--bg);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all 0.25s;cursor:pointer}
+.bc:hover{border-color:var(--ink);transform:translateY(-3px)}
+.bc-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;border-bottom:1px solid var(--border);background:var(--bg2)}
+.bc-body{padding:1.25rem}
+.bc-tag{font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.45rem}
+.bc-title{font-family:var(--serif);font-size:0.95rem;font-weight:400;color:var(--ink);margin-bottom:0.45rem;line-height:1.3}
+.bc-desc{font-size:0.76rem;color:var(--ink3);line-height:1.6;margin-bottom:0.7rem}
+.bc-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:0.6rem;color:var(--ink3)}
+.bc-cs{color:var(--ink);font-weight:500}
+
+/* ABOUT */
+#about{background:var(--bg2)}
+.ab-lay{display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:start}
+.ab-bio p{font-size:0.92rem;color:var(--ink2);line-height:1.85;margin-bottom:1rem}
+.okr-box{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-top:1.5rem}
+.okr-title{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:1rem}
+.okr-obj{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.35rem}
+.okr-krs{list-style:none;display:flex;flex-direction:column;gap:0.22rem;margin-bottom:1rem}
+.okr-krs li{font-size:0.75rem;color:var(--ink3);padding-left:1rem;position:relative}
+.okr-krs li::before{content:'KR';position:absolute;left:0;font-family:var(--mono);font-size:0.52rem;color:var(--ink);top:0.15rem}
+.edu-c{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.edu-d{font-family:var(--serif);font-size:0.92rem;font-weight:400;color:var(--ink);margin-bottom:0.18rem}
+.edu-s{font-size:0.76rem;color:var(--ink3);margin-bottom:0.35rem}
+.edu-bs{display:flex;gap:0.4rem;flex-wrap:wrap}
+.eb{font-family:var(--mono);font-size:0.58rem;padding:0.18rem 0.5rem;border-radius:2px}
+.eb-y{background:var(--bg2);border:1px solid var(--border);color:var(--ink2)}
+.eb-g{background:var(--bg2);border:1px solid var(--border);color:var(--ink2)}
+.jt{margin-top:1.5rem}
+.jt-lab{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:1rem}
+.jti{display:flex;gap:0.75rem;padding-bottom:1.1rem;position:relative}
+.jti::before{content:'';position:absolute;left:8px;top:18px;bottom:0;width:1px;background:var(--border)}
+.jti:last-child::before{display:none}
+.jd{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--ink);background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.jdi{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.jdate{font-family:var(--mono);font-size:0.6rem;color:var(--ink3);margin-bottom:0.18rem}
+.jev{font-size:0.79rem;color:var(--ink)}
+
+/* CONTACT */
+#contact{background:var(--bg3)}
+.con-lay{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.con-left p{font-size:0.92rem;color:var(--ink2);line-height:1.8;margin-bottom:1.5rem}
+.avail{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.68rem;color:var(--ink);background:var(--bg);border:1px solid var(--ink);padding:0.45rem 1rem;border-radius:3px;margin-bottom:1.5rem}
+.avail-d{width:6px;height:6px;border-radius:50%;background:var(--ink);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.clinks{display:flex;flex-direction:column;gap:0.7rem}
+.clink{display:flex;align-items:center;gap:1rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0.95rem 1.25rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s}
+.clink:hover{border-color:var(--ink)}
+.cl-icon{width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:var(--bg2)}
+.cl-lab{font-family:var(--mono);font-size:0.6rem;color:var(--ink3);text-transform:uppercase;letter-spacing:0.06em}
+.cl-val{font-size:0.86rem;color:var(--ink)}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.08em}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fadeUp 0.6s ease both}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.22s}.d3{animation-delay:0.34s}.d4{animation-delay:0.46s}.d5{animation-delay:0.58s}
+
+/* SCROLL DOWN HINT — editorial */
+.scroll-pill{display:inline-flex;align-items:center;gap:1rem;margin-top:2.4rem;text-decoration:none;opacity:0;animation:fadeUp 0.7s ease 1.1s forwards;color:var(--ink3);transition:color 0.25s ease}
+.scroll-pill:hover{color:var(--ink)}
+.sp-index{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.16em;color:var(--ink3)}
+.sp-rule{position:relative;width:96px;height:1px;background:var(--border2);overflow:hidden}
+.sp-rule::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:var(--ink);animation:ruleSlide 2.2s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes ruleSlide{
+  0%{left:-40%}
+  60%{left:100%}
+  100%{left:100%}
+}
+.sp-label{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:inherit}
+.sp-arrow{display:inline-flex;animation:arrowBob 2.2s ease-in-out infinite}
+.sp-arrow svg{display:block}
+.scroll-pill:hover .sp-arrow{animation-duration:1.1s}
+@keyframes arrowBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(5px)}
+}
+
+@media(max-width:920px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .hero-grid,.sk-top,.ab-lay,.con-lay{grid-template-columns:1fr}
+  .dash{display:none}
+  .psteps{grid-template-columns:1fr 1fr;gap:1.5rem}.psteps::before{display:none}
+  .principles,.bgrid{grid-template-columns:1fr}
+  .cf-g{grid-template-columns:1fr 1fr}
+  .tm{grid-template-columns:1fr 1fr}
+  .mstrip-inner{flex-wrap:wrap;gap:1.5rem}
+  .container{padding:0 1.5rem}
+  section{padding:4.5rem 0}
+  .cs-h{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">BT.pm</a>
+  <ul class="nav-links">
+    <li><a href="#process">Process</a></li>
+    <li><a href="#casestudies">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#blog">Teardowns</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+<div class="container">
+<div class="hero-grid">
+  <div>
+    <h1 class="hero-name fu d1">Bhuvaneshwari<span>Thammanaboina</span></h1>
+    <p class="hero-role fu d2">APM · B2B SaaS · AI Products · Analytics · Engagement</p>
+    <p class="hero-bio fu d3">I build data-driven, AI-powered products that measurably improve how users discover, adopt, and retain value. 2+ years shipping in B2B SaaS — from LLM triage systems to retention analytics platforms.</p>
+    <div class="tags fu d3">
+      <span class="tag tag-g">LLM / AI Products</span>
+      <span class="tag tag-o">OKRs &amp; Roadmapping</span>
+      <span class="tag tag-b">Analytics &amp; Metrics</span>
+      <span class="tag tag-y">User Research</span>
+      <span class="tag tag-g">Agile / Scrum</span>
+      <span class="tag tag-o">RICE Framework</span>
+    </div>
+    <div class="btns fu d4">
+      <a href="#casestudies" class="btn btn-a">View Case Studies →</a>
+      <a href="#contact" class="btn btn-g">Get In Touch</a>
+    </div>
+    <a href="#process" class="scroll-pill fu" aria-label="Scroll down to explore" style="animation-delay:1.1s">
+      <span class="sp-index">01 / 06</span>
+      <span class="sp-rule" aria-hidden="true"></span>
+      <span class="sp-label">Scroll to explore</span>
+      <span class="sp-arrow" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+  <div class="dash fu d5">
+    <div class="dash-bar">
+      <div class="d-dot" style="background:var(--bg3)"></div>
+      <div class="d-dot" style="background:#999999"></div>
+      <div class="d-dot" style="background:var(--ink2)"></div>
+      <span class="dash-label">product_metrics.live</span>
+    </div>
+    <div class="dash-body">
+      <div class="mg">
+        <div class="mc"><div class="mv gv">−30%</div><div class="ml">Repeat Queries</div><div class="md gv">↓ AI Triage</div></div>
+        <div class="mc"><div class="mv ov">+12%</div><div class="ml">Discoverability</div><div class="md ov">↑ Contextual</div></div>
+        <div class="mc"><div class="mv bv">−15%</div><div class="ml">Response Time</div><div class="md bv">↓ Automation</div></div>
+        <div class="mc"><div class="mv yv">+7%</div><div class="ml">CTR Uplift</div><div class="md yv">↑ A/B Test</div></div>
+      </div>
+      <div class="br"><div class="brl"><span>AI / LLM Product Thinking</span></div><div class="bt"><div class="bf" style="width:88%;background:var(--ink)"></div></div></div>
+      <div class="br"><div class="brl"><span>OKRs &amp; Roadmapping</span></div><div class="bt"><div class="bf" style="width:93%;background:var(--ink)"></div></div></div>
+      <div class="br"><div class="brl"><span>Analytics &amp; Metrics</span></div><div class="bt"><div class="bf" style="width:86%;background:var(--ink)"></div></div></div>
+      <div class="ml-list">
+        <div class="ml-item"><span>Deepta.AI — APM</span><span class="badge" style="background:var(--bg2);color:var(--ink)">Active</span></div>
+        <div class="ml-item"><span>Apxor Tech — 2yr APM</span><span class="badge" style="background:var(--bg3);color:var(--ink3)">✓</span></div>
+        <div class="ml-item"><span>Gold Medalist · Rank 4</span><span class="badge" style="background:var(--bg2);color:var(--ink)">🏅</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- METRICS STRIP -->
+<div class="mstrip">
+  <div class="mstrip-inner">
+    <div class="ms-item"><div class="ms-val">2+</div><div class="ms-lab">Years PM</div></div>
+    <div class="ms-item"><div class="ms-val">12%</div><div class="ms-lab">Discoverability</div></div>
+    <div class="ms-item"><div class="ms-val">30%</div><div class="ms-lab">Fewer Queries</div></div>
+    <div class="ms-item"><div class="ms-val">15%</div><div class="ms-lab">Faster Response</div></div>
+    <div class="ms-item"><div class="ms-val">20%</div><div class="ms-lab">Faster Decisions</div></div>
+    <div class="ms-item"><div class="ms-val">4+</div><div class="ms-lab">Products Shipped</div></div>
+  </div>
+</div>
+
+<!-- PM PROCESS -->
+<section id="process">
+<div class="container">
+  <p class="eyebrow">My PM Process</p>
+  <h2>How I <span class="hl">Build Products</span></h2>
+  <p style="color:var(--ink2);max-width:520px;margin-top:0.5rem;font-size:0.88rem">A repeatable, data-first framework I apply across every initiative — discovery to post-launch iteration.</p>
+  <div class="psteps">
+    <div class="ps"><div class="ps-n">01</div><div class="ps-t">Discover</div><div class="ps-d">Qualitative + quantitative research. Interviews, funnel analysis, ticket clustering, session recordings.</div><div class="ps-tools"><span class="pt">Mixpanel</span><span class="pt">Interviews</span></div></div>
+    <div class="ps"><div class="ps-n">02</div><div class="ps-t">Define</div><div class="ps-d">Problem framing, OKR alignment, success metrics. PRD + MRD with clear acceptance criteria.</div><div class="ps-tools"><span class="pt">Notion</span><span class="pt">OKRs</span><span class="pt">PRD</span></div></div>
+    <div class="ps"><div class="ps-n">03</div><div class="ps-t">Prioritize</div><div class="ps-d">RICE scoring against quarterly OKRs. Impact vs. effort trade-offs with engineering and design.</div><div class="ps-tools"><span class="pt">RICE</span><span class="pt">JIRA</span></div></div>
+    <div class="ps"><div class="ps-n">04</div><div class="ps-t">Build</div><div class="ps-d">Agile sprint planning, backlog grooming, design reviews, cross-functional alignment across cycles.</div><div class="ps-tools"><span class="pt">Scrum</span><span class="pt">Sprints</span></div></div>
+    <div class="ps"><div class="ps-n">05</div><div class="ps-t">Measure</div><div class="ps-d">Post-launch KPI monitoring, A/B test analysis, cohort retention, anomaly detection, iteration.</div><div class="ps-tools"><span class="pt">A/B Tests</span><span class="pt">KPIs</span></div></div>
+  </div>
+  <div class="principles">
+    <div class="pc"><div class="pc-i">📊</div><div class="pc-t">Data before opinions</div><div class="pc-b">Every prioritization decision is backed by quantitative signal — funnel drop-offs, usage segmentation, cohort behavior — not intuition alone.</div></div>
+    <div class="pc"><div class="pc-i">🎯</div><div class="pc-t">OKRs as north stars</div><div class="pc-b">I tie every sprint goal and roadmap item to quarterly OKRs. If it doesn't move a key result, it waits. Alignment removes ambiguity at execution time.</div></div>
+    <div class="pc"><div class="pc-i">🔁</div><div class="pc-t">Ship small, learn fast</div><div class="pc-b">Iterative delivery with tight feedback loops. I prefer a scoped V1 with clear instrumentation over a big-bang launch with no data.</div></div>
+    <div class="pc"><div class="pc-i">🤖</div><div class="pc-t">AI as a product layer</div><div class="pc-b">LLMs are capabilities, not features. I define requirements around model confidence thresholds, fallback logic, and human-in-the-loop layers.</div></div>
+    <div class="pc"><div class="pc-i">👥</div><div class="pc-t">Research is ongoing</div><div class="pc-b">Discovery doesn't end at launch. I synthesize support tickets, NPS signals, and behavioral data continuously to surface the next opportunity.</div></div>
+    <div class="pc"><div class="pc-i">🤝</div><div class="pc-t">Cross-functional clarity</div><div class="pc-b">Detailed acceptance criteria for engineering. Early design reviews to prevent rework. Weekly stakeholder updates to prevent surprises.</div></div>
+  </div>
+</div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="casestudies">
+<div class="container">
+  <p class="eyebrow">Case Studies</p>
+  <h2>Problems I've <span class="hl">Solved</span></h2>
+  <p style="color:var(--ink2);max-width:520px;margin-top:0.5rem;font-size:0.88rem">Structured PM framework applied to every case: Problem → Research → Solution → Outcome. Click to expand.</p>
+
+  <!-- CS1 -->
+  <div class="cs">
+    <div class="cs-h" onclick="toggle(this)">
+      <div>
+        <div class="cs-tags">
+          <span class="ct" style="background:var(--bg2);color:var(--ink);border:1px solid var(--border)">AI / LLM</span>
+          <span class="ct" style="background:var(--bg3);color:var(--ink3);border:0.5px solid var(--border)">Support Automation</span>
+          <span class="ct" style="background:var(--bg3);color:var(--ink3);border:0.5px solid var(--border)">GTM</span>
+        </div>
+        <div class="cs-title">LLM-Powered Support Triage System</div>
+        <div class="cs-sub">Automated case categorization, agent assist, and self-serve resolution for high-volume B2B support — reducing repeat queries by 30% and first-response time by 15%.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.75rem">
+        <div class="cs-outs">
+          <div class="co"><div class="co-v gv">−30%</div><div class="co-l">Repeat Queries</div></div>
+          <div class="co"><div class="co-v bv">−15%</div><div class="co-l">Response Time</div></div>
+        </div>
+        <button class="tog">Collapse ↑</button>
+      </div>
+    </div>
+    <div class="cs-bd open">
+      <div class="cf">
+        <div class="cf-h">// PM FRAMEWORK · PROBLEM → RESEARCH → SOLUTION → OUTCOME</div>
+        <div class="cf-g">
+          <div class="cfb"><div class="cfl">🔍 Problem</div><div class="cfc">Support teams overwhelmed with repeated, predictable queries. SLA breaches rising. Agents stuck on L1 triage instead of complex cases.</div></div>
+          <div class="cfb"><div class="cfl">📊 Research</div><div class="cfc">Support ticket clustering, chatbot query log analysis, SLA breach trend tracking, resolution-time heatmaps, agent workload segmentation.</div></div>
+          <div class="cfb"><div class="cfl">🛠 Solution</div><div class="cfc">MRD for LLM triage: contextual retrieval pipeline, chatbot interaction layer, auto case categorization, agent-assist suggestions, escalation routing.</div></div>
+          <div class="cfb"><div class="cfl">📈 Outcome</div><div class="cfc">30% reduction in repeated queries. 15% faster first-response. Higher agent satisfaction. AI automation with reliable manual-review fallback.</div></div>
+        </div>
+      </div>
+      <div class="cs-st">// Key Product Decisions</div>
+      <ul class="csbul">
+        <li>Defined <strong>model confidence thresholds</strong> to determine when AI auto-resolves vs. escalates — balancing automation depth with reliability and compliance.</li>
+        <li>Led <strong>Agile sprint planning</strong> for automated case creation and SLA-based routing triggered via agent dashboards.</li>
+        <li>Mapped chatbot → ticket escalation flows with UX and Ops using Scrum ceremonies, eliminating case diagnosis ambiguity.</li>
+        <li>Prioritized automation roadmap via <strong>impact vs. effort analysis</strong> aligned to OKRs — highest-value automations shipped first.</li>
+        <li>Co-defined <strong>GTM strategy</strong> including internal enablement, external messaging, and rollout sequencing for AI product launch.</li>
+      </ul>
+      <div class="cs-st" style="margin-top:1.25rem">// OKR Alignment</div>
+      <div class="okr-box" style="margin-top:0">
+        <div class="okr-title">// Q OKRs · AI Support Product</div>
+        <div class="okr-obj">O: Reduce L1 support load through intelligent automation</div>
+        <ul class="okr-krs">
+          <li>Reduce repeated queries by 25%+ (achieved 30%)</li>
+          <li>Improve first-response time by 10%+ (achieved 15%)</li>
+          <li>Launch chatbot deflection with 70%+ case categorization accuracy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CS2 -->
+  <div class="cs">
+    <div class="cs-h" onclick="toggle(this)">
+      <div>
+        <div class="cs-tags">
+          <span class="ct" style="background:var(--bg2);color:var(--ink);border:1px solid var(--border)">User Engagement</span>
+          <span class="ct" style="background:var(--bg3);color:var(--ink3);border:0.5px solid var(--border)">In-App</span>
+          <span class="ct" style="background:var(--bg3);color:var(--ink3);border:0.5px solid var(--border)">RICE</span>
+        </div>
+        <div class="cs-title">Contextual Engagement to Drive Feature Adoption</div>
+        <div class="cs-sub">Identified low feature discoverability as a growth ceiling via funnel analysis, then shipped FAB Icons, Embedded Cards, and Story Templates to guide users contextually.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.75rem">
+        <div class="cs-outs">
+          <div class="co"><div class="co-v ov">+12%</div><div class="co-l">Discoverability</div></div>
+          <div class="co"><div class="co-v yv">+7%</div><div class="co-l">CTR Uplift</div></div>
+        </div>
+        <button class="tog">Expand ↓</button>
+      </div>
+    </div>
+    <div class="cs-bd">
+      <div class="cf">
+        <div class="cf-h">// PM FRAMEWORK · PROBLEM → RESEARCH → SOLUTION → OUTCOME</div>
+        <div class="cf-g">
+          <div class="cfb"><div class="cfl">🔍 Problem</div><div class="cfc">Users not discovering high-value features despite them being built. Funnel showing drop-offs at key moments. Growth ceiling from poor in-product guidance.</div></div>
+          <div class="cfb"><div class="cfl">📊 Research</div><div class="cfc">Funnel drop-off analysis, session behavior tracking, feature usage segmentation, heatmaps, and user interviews to pinpoint discovery failure points.</div></div>
+          <div class="cfb"><div class="cfl">🛠 Solution</div><div class="cfc">RICE-prioritized contextual engagement suite: FAB Icons for guided discovery, Embedded Cards for in-context education, Story Templates for interactive onboarding.</div></div>
+          <div class="cfb"><div class="cfl">📈 Outcome</div><div class="cfc">12% feature discoverability lift. 7% CTR uplift via contextual delivery. Validated via A/B testing across user cohorts across multiple sprint cycles.</div></div>
+        </div>
+      </div>
+      <div class="cs-st">// RICE Prioritization Rationale</div>
+      <ul class="csbul">
+        <li><strong>Reach:</strong> All active users hit the discovery gap — high reach score made this top priority over niche requests.</li>
+        <li><strong>Impact:</strong> Discoverability directly correlates to retention and expansion revenue — scored 3/3 on impact.</li>
+        <li><strong>Confidence:</strong> Funnel data + user interviews gave 85%+ confidence in root cause before building.</li>
+        <li><strong>Effort:</strong> 3 components built as a suite sharing a rendering layer — lower total effort than 3 independent builds.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CS3 -->
+  <div class="cs">
+    <div class="cs-h" onclick="toggle(this)">
+      <div>
+        <div class="cs-tags">
+          <span class="ct" style="background:var(--bg2);color:var(--ink);border:1px solid var(--border)">Analytics</span>
+          <span class="ct" style="background:var(--bg3);color:var(--ink3);border:0.5px solid var(--border)">Retention</span>
+          <span class="ct" style="background:var(--bg3);color:var(--ink3);border:0.5px solid var(--border)">Platform V2</span>
+        </div>
+        <div class="cs-title">Retention Analytics V2 — Deep Behavioral Insight Platform</div>
+        <div class="cs-sub">Rebuilt the analytics platform with frequency curves, event-property breakdowns, cohort saving, and 3rd-party integrations — enabling truly data-driven decisions across product, growth, and marketing.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.75rem">
+        <div class="cs-outs">
+          <div class="co"><div class="co-v bv">+20%</div><div class="co-l">Faster Decisions</div></div>
+          <div class="co"><div class="co-v gv">V2</div><div class="co-l">Full Rearchitect</div></div>
+        </div>
+        <button class="tog">Expand ↓</button>
+      </div>
+    </div>
+    <div class="cs-bd">
+      <div class="cf">
+        <div class="cf-h">// PM FRAMEWORK · PROBLEM → RESEARCH → SOLUTION → OUTCOME</div>
+        <div class="cf-g">
+          <div class="cfb"><div class="cfl">🔍 Problem</div><div class="cfc">Product, growth, and marketing teams lacked granular retention visibility. V1 analytics too surface-level for actionable insights or cohort-level decisions.</div></div>
+          <div class="cfb"><div class="cfl">📊 Research</div><div class="cfc">Stakeholder interviews across product, growth, marketing. Audit of V1 gaps vs. competitor tools. Usage analysis of abandoned V1 workflows.</div></div>
+          <div class="cfb"><div class="cfl">🛠 Solution</div><div class="cfc">V2 with frequency curves, event-property breakdowns, custom filters, cohort saving, Metric Trees, Alerts, Annotations, and 3rd-party integrations.</div></div>
+          <div class="cfb"><div class="cfl">📈 Outcome</div><div class="cfc">20% faster product decisions. Full adoption by product, growth, and marketing. Cohort saving became the most-used feature post-launch.</div></div>
+        </div>
+      </div>
+      <div class="cs-st">// Key Capabilities Defined</div>
+      <ul class="csbul">
+        <li><strong>Frequency Curves</strong> — revealed behavioral cadence patterns invisible in simple retention tables, unlocking new re-engagement strategies.</li>
+        <li><strong>Event-Property Breakdowns</strong> — allowed teams to segment retention by any event attribute, enabling hypothesis-driven analysis.</li>
+        <li><strong>Cohort Saving</strong> — reduced repeated setup time for recurring analyses; became the most-used feature post-launch.</li>
+        <li><strong>Metric Trees + Alerts</strong> — gave leadership a single pane of glass for KPI monitoring with automated anomaly detection.</li>
+        <li><strong>3rd-Party Integrations</strong> — unified data from fragmented tools into one view, eliminating manual cross-tool reconciliation.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="container">
+  <p class="eyebrow">Skills &amp; Expertise</p>
+  <h2>My <span class="hl">PM Toolkit</span></h2>
+  <div class="sk-top">
+    <div>
+      <div class="sk-st">// Core Competencies</div>
+      <div class="skrows">
+        <div><div class="skr-top"><span class="sk-n">OKRs &amp; Roadmapping</span></div><div class="sk-tr"><div class="sk-fi" style="width:95%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">AI / LLM Product Thinking</span></div><div class="sk-tr"><div class="sk-fi" style="width:88%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">Agile &amp; Sprint Planning</span></div><div class="sk-tr"><div class="sk-fi" style="width:93%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">PRD / MRD / User Stories</span></div><div class="sk-tr"><div class="sk-fi" style="width:92%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">Analytics &amp; Metrics Definition</span></div><div class="sk-tr"><div class="sk-fi" style="width:87%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">User Research &amp; Discovery</span></div><div class="sk-tr"><div class="sk-fi" style="width:84%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">A/B Testing &amp; Experimentation</span></div><div class="sk-tr"><div class="sk-fi" style="width:80%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">Go-To-Market Strategy</span></div><div class="sk-tr"><div class="sk-fi" style="width:74%;background:var(--ink)"></div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sk-st">// RICE Prioritization (Live Example)</div>
+      <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:1.5rem">
+        <p style="font-family:var(--mono);font-size:0.65rem;color:var(--ink);margin-bottom:1rem">// RICE = (Reach × Impact × Confidence) / Effort</p>
+        <div style="display:flex;flex-direction:column;gap:0.85rem">
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>Contextual Engagement Suite</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 840</span></div><div class="bt"><div class="bf" style="width:92%;background:var(--ink)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>Retention Analytics V2</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 720</span></div><div class="bt"><div class="bf" style="width:78%;background:var(--ink)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>LLM Triage Automation</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 680</span></div><div class="bt"><div class="bf" style="width:74%;background:var(--ink)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>In-App Design Builder</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 560</span></div><div class="bt"><div class="bf" style="width:60%;background:var(--ink)"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tm">
+    <div class="tg"><div class="tgn">// Product Management</div><div class="tchips"><span class="tc">JIRA</span><span class="tc">ClickUp</span><span class="tc">Notion</span><span class="tc">Lovable</span><span class="tc">Snov.io</span><span class="tc">Lemlist</span></div></div>
+    <div class="tg"><div class="tgn">// Analytics</div><div class="tchips"><span class="tc">Mixpanel</span><span class="tc">Amplitude</span><span class="tc">WebEngage</span><span class="tc">Excel</span></div></div>
+    <div class="tg"><div class="tgn">// Methodologies</div><div class="tchips"><span class="tc">Agile</span><span class="tc">Scrum</span><span class="tc">RICE</span><span class="tc">OKRs</span><span class="tc">A/B Testing</span><span class="tc">Sprint Planning</span></div></div>
+  </div>
+
+  <!-- LLM WORKFLOW -->
+  <div style="margin-top:3rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:0.5rem;border-bottom:1px solid var(--border);margin-bottom:1rem">
+      <div class="sk-st" style="border-bottom:none;margin-bottom:0;padding-bottom:0">// LLM Workflow Architecture — Support Triage System</div>
+      <button class="tog" id="llm-tog" onclick="toggleLLM()" style="flex-shrink:0">Collapse ↑</button>
+    </div>
+    <div id="llm-body" style="display: block;">
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-top:1rem">
+      <p style="font-family:var(--mono);font-size:0.65rem;color:var(--ink3);margin-bottom:1.5rem;letter-spacing:0.08em">// PRODUCT ARCHITECTURE · Deepta.AI Support Automation · Zammad (Open Source Ticketing)</p>
+      <div style="display:flex;flex-direction:column;gap:0;max-width:560px;margin:0 auto">
+        <!-- Step 1 -->
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;position:relative">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.3rem">USER QUERY</div>
+          <div style="font-size:0.82rem;color:var(--ink);font-weight:500">User Query Input</div>
+          <div style="font-size:0.72rem;color:var(--ink3);margin-top:0.2rem">Customer submits query via chatbot or support portal</div>
+        </div>
+        <div style="display:flex;justify-content:center;padding:0.4rem 0;color:var(--ink3);font-size:0.9rem">↓</div>
+        <!-- Step 2 -->
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.3rem">MODERATION LAYER</div>
+          <div style="font-size:0.82rem;color:var(--ink);font-weight:500">Filters unsafe, spam, or restricted content</div>
+          <div style="font-size:0.72rem;color:var(--ink3);margin-top:0.2rem">Content safety check before any LLM processing</div>
+        </div>
+        <div style="display:flex;justify-content:center;padding:0.4rem 0;color:var(--ink3);font-size:0.9rem">↓</div>
+        <!-- Step 3 -->
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.3rem">INTENT DETECTION</div>
+          <div style="font-size:0.82rem;color:var(--ink);font-weight:500">Identifies user intent and request type</div>
+          <div style="font-size:0.72rem;color:var(--ink3);margin-top:0.2rem">Classifies: billing / technical / feature request / escalation</div>
+        </div>
+        <div style="display:flex;justify-content:center;padding:0.4rem 0;color:var(--ink3);font-size:0.9rem">↓</div>
+        <!-- Step 4 -->
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.3rem">RAG — RETRIEVAL (OPTIONAL)</div>
+          <div style="font-size:0.82rem;color:var(--ink);font-weight:500">Fetches relevant KB articles, policies, history</div>
+          <div style="font-size:0.72rem;color:var(--ink3);margin-top:0.2rem">Contextual retrieval pipeline from knowledge base</div>
+        </div>
+        <div style="display:flex;justify-content:center;padding:0.4rem 0;color:var(--ink3);font-size:0.9rem">↓</div>
+        <!-- Step 5 -->
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.3rem">LLM PROCESSING</div>
+          <div style="font-size:0.82rem;color:var(--ink);font-weight:500">Generates contextual response</div>
+          <div style="font-size:0.72rem;color:var(--ink3);margin-top:0.2rem">Uses query + retrieved data + conversation history</div>
+        </div>
+        <div style="display:flex;justify-content:center;padding:0.4rem 0;color:var(--ink3);font-size:0.9rem">↓</div>
+        <!-- Confidence Check -->
+        <div style="background:var(--bg3);border:1.5px solid var(--border2);border-radius:8px;padding:1rem 1.25rem">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.5rem">CONFIDENCE CHECK</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.65rem 0.9rem">
+              <div style="font-family:var(--mono);font-size:0.6rem;color:var(--ink3);margin-bottom:0.2rem">HIGH CONFIDENCE</div>
+              <div style="font-size:0.78rem;color:var(--ink);font-weight:500">Auto-response → Zammad ticket</div>
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.65rem 0.9rem">
+              <div style="font-family:var(--mono);font-size:0.6rem;color:var(--ink3);margin-bottom:0.2rem">LOW CONFIDENCE</div>
+              <div style="font-size:0.78rem;color:var(--ink);font-weight:500">Escalate to human agent</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;padding:0.4rem 0;color:var(--ink3);font-size:0.9rem">↓</div>
+        <!-- Action Layer -->
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.4rem">ACTION LAYER — ZAMMAD</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.35rem">
+            <span style="font-family:var(--mono);font-size:0.6rem;padding:0.2rem 0.55rem;background:var(--bg2);border:1px solid var(--border);color:var(--ink2);border-radius:2px">Auto-categorize ticket</span>
+            <span style="font-family:var(--mono);font-size:0.6rem;padding:0.2rem 0.55rem;background:var(--bg2);border:1px solid var(--border);color:var(--ink2);border-radius:2px">Route query</span>
+            <span style="font-family:var(--mono);font-size:0.6rem;padding:0.2rem 0.55rem;background:var(--bg2);border:1px solid var(--border);color:var(--ink2);border-radius:2px">Send response</span>
+            <span style="font-family:var(--mono);font-size:0.6rem;padding:0.2rem 0.55rem;background:var(--bg2);border:1px solid var(--border);color:var(--ink2);border-radius:2px">Trigger workflow/API</span>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;padding:0.4rem 0;color:var(--ink3);font-size:0.9rem">↓</div>
+        <!-- Survey -->
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem">
+          <div style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.1em;margin-bottom:0.3rem">SATISFACTION SURVEY</div>
+          <div style="font-size:0.82rem;color:var(--ink);font-weight:500">Chatbot satisfaction check</div>
+          <div style="font-size:0.72rem;color:var(--ink3);margin-top:0.2rem">User rates resolution → feedback loop into model improvement</div>
+          <div style="display:flex;gap:0.5rem;margin-top:0.5rem">
+            <span style="font-family:var(--mono);font-size:0.65rem;padding:0.22rem 0.7rem;background:var(--bg2);border:1px solid var(--border);color:var(--ink2);border-radius:20px;cursor:default">👍 Satisfied</span>
+            <span style="font-family:var(--mono);font-size:0.65rem;padding:0.22rem 0.7rem;background:var(--bg2);border:1px solid var(--border);color:var(--ink2);border-radius:20px;cursor:default">👎 Not satisfied → re-escalate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div><!-- end llm-body -->
+  </div>
+</div>
+</section>
+
+<!-- BLOG/TEARDOWNS -->
+<section id="blog">
+<div class="container">
+  <p class="eyebrow">PM Teardowns &amp; Thinking</p>
+  <h2>Product <span class="hl">Analysis</span></h2>
+  <p style="color:var(--ink2);max-width:520px;margin-top:0.5rem;font-size:0.88rem">How I think about product — teardowns of products I admire, frameworks I use, and lessons from the field.</p>
+  <div class="bgrid">
+    <div class="bc"><div class="bc-img">🤖</div><div class="bc-body"><div class="bc-tag">AI Product Thinking</div><div class="bc-title">Why LLM products need a "confidence architecture"</div><div class="bc-desc">Most AI product failures aren't model failures — they're product failures. How I think about thresholds, fallbacks, and human-in-the-loop design.</div><div class="bc-meta"><span>5 min read</span><span class="bc-cs">Coming soon →</span></div></div></div>
+    <div class="bc"><div class="bc-img">📊</div><div class="bc-body"><div class="bc-tag">Analytics Teardown</div><div class="bc-title">Mixpanel vs Amplitude: a PM's breakdown</div><div class="bc-desc">Having used both heavily — how I choose between them based on team maturity, product stage, and the questions you're actually trying to answer.</div><div class="bc-meta"><span>7 min read</span><span class="bc-cs">Coming soon →</span></div></div></div>
+    <div class="bc"><div class="bc-img">🎯</div><div class="bc-body"><div class="bc-tag">OKR Framework</div><div class="bc-title">How I write OKRs that actually change what gets built</div><div class="bc-desc">Most OKRs are either too vague or too output-focused. A framework for writing key results that align sprint work to real business outcomes.</div><div class="bc-meta"><span>6 min read</span><span class="bc-cs">Coming soon →</span></div></div></div>
+    <div class="bc"><div class="bc-img">🔍</div><div class="bc-body"><div class="bc-tag">User Research</div><div class="bc-title">Teardown: How Intercom does in-app onboarding</div><div class="bc-desc">A structured PM teardown of Intercom's onboarding flow — what works, what doesn't, and what I'd change based on behavioral design principles.</div><div class="bc-meta"><span>8 min read</span><span class="bc-cs">Coming soon →</span></div></div></div>
+    <div class="bc"><div class="bc-img">🚀</div><div class="bc-body"><div class="bc-tag">GTM Strategy</div><div class="bc-title">What I learned co-defining a GTM for an AI product</div><div class="bc-desc">The product was ready but the market wasn't. Lessons from building GTM infrastructure, enablement assets, and rollout sequencing for a B2B LLM product.</div><div class="bc-meta"><span>6 min read</span><span class="bc-cs">Coming soon →</span></div></div></div>
+    <div class="bc"><div class="bc-img">📈</div><div class="bc-body"><div class="bc-tag">Metrics</div><div class="bc-title">The metric that saved our retention roadmap</div><div class="bc-desc">We were optimizing the wrong number. How switching from 30-day retention to frequency curves completely changed our prioritization and what we shipped next.</div><div class="bc-meta"><span>5 min read</span><span class="bc-cs">Coming soon →</span></div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+  <div class="ab-lay">
+    <div class="ab-bio">
+      <p class="eyebrow">About Me</p>
+      <h2>Engineer. Customer. <span class="hl">Product Builder.</span></h2>
+      <p>I started as a Civil Engineering gold medalist (4th university rank, CGPA 8.61 at Osmania University) before deliberately pivoting into product — a path that gave me something rare: systems thinking from engineering, customer empathy from CS, and product strategy built on both.</p>
+      <p>My journey from Associate CSM → Associate PM gave me a full-stack view of product: I've sat with frustrated customers, written the PRDs that fix their problems, and tracked the KPIs that prove it worked.</p>
+      <p>I gravitate toward AI products where defining the right human-machine boundary is the hardest design decision, and analytics platforms where the challenge is making data actionable, not just visible.</p>
+      <div class="okr-box">
+        <div class="okr-title">// MY CAREER OKRs · 2025–2026</div>
+        <div class="okr-obj">O: Become a full-stack PM who ships AI products at scale</div>
+        <ul class="okr-krs">
+          <li>Lead 2+ AI product initiatives with measurable post-launch outcomes</li>
+          <li>Develop deep LLM product architecture literacy (confidence layers, RAG, evals)</li>
+          <li>Contribute to GTM for at least one 0→1 product launch</li>
+        </ul>
+        <div class="okr-obj">O: Build in public — share PM thinking with the community</div>
+        <ul class="okr-krs">
+          <li>Publish 6 PM teardowns / analytical essays in 2025</li>
+          <li>Grow LinkedIn following by sharing data-driven product frameworks</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="edu-c">
+        <div class="edu-d">B.E. Civil Engineering</div>
+        <div class="edu-s">Matrusri Engineering College, Hyderabad · Osmania University · 2019–2023</div>
+        <div class="edu-bs"><span class="eb eb-y">🏅 Gold Medalist</span><span class="eb eb-g">CGPA 8.61</span><span class="eb eb-g">Rank 4</span></div>
+      </div>
+      <div class="edu-c">
+        <div class="edu-d">Intermediate (TSBIE)</div>
+        <div class="edu-s">Nano Junior College · 2017–2019</div>
+        <div class="edu-bs"><span class="eb eb-g">89.7%</span></div>
+      </div>
+      <div class="jt">
+        <div class="jt-lab">// CAREER JOURNEY</div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">Sept 2025 – Present</div><div class="jev">APM · Deepta.AI — AI products, LLM triage, GTM</div></div></div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">Sept 2023 – Sept 2025</div><div class="jev">APM · Apxor — Engagement, analytics, Retention V2</div></div></div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">Mar – Sept 2023</div><div class="jev">Assoc. CSM · Apxor — Customer discovery, product inputs</div></div></div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">2019 – 2023</div><div class="jev">B.E. Engineering · Gold Medal, Rank 4</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+  <div class="con-lay">
+    <div class="con-left">
+      <p class="eyebrow">Get In Touch</p>
+      <h2>Let's Build <span class="hl">Something</span></h2>
+      <div class="avail"><div class="avail-d"></div>Open to PM opportunities</div>
+      <p>If you're building an AI product, a data-driven SaaS platform, or need a PM who obsesses over metrics and user behavior — I'd love to connect.</p>
+      <div class="tags" style="margin-top:1rem">
+        <span class="tag tag-g">AI Products</span>
+        <span class="tag tag-b">Analytics Platforms</span>
+        <span class="tag tag-o">B2B SaaS</span>
+        <span class="tag tag-y">User Engagement</span>
+      </div>
+    </div>
+    <div class="clinks">
+      <a class="clink" href="mailto:bhuvaneshwarithammanaboina@gmail.com"><div class="cl-icon">✉️</div><div><div class="cl-lab">Email</div><div class="cl-val">bhuvaneshwarithammanaboina@gmail.com</div></div></a>
+      <a class="clink" href="tel:+919553387337"><div class="cl-icon">📞</div><div><div class="cl-lab">Phone</div><div class="cl-val">+91 9553387337</div></div></a>
+      <a class="clink" href="https://www.linkedin.com/in/bhuvaneshwari-thammanaboina-8a3456255/" target="_blank"><div class="cl-icon">💼</div><div><div class="cl-lab">LinkedIn</div><div class="cl-val">linkedin.com/in/Bhuvaneshwari</div></div></a>
+      <a class="clink" href="#" onclick="downloadResume(event)"><div class="cl-icon">📄</div><div><div class="cl-lab">Resume</div><div class="cl-val">Download PDF →</div></div></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>© 2025 · Bhuvaneshwari Thammanaboina · Associate Product Manager · Hyderabad, India</footer>
+
+<script>
+function toggle(header){
+  const body=header.nextElementSibling;
+  const btn=header.querySelector('.tog');
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open);
+  btn.textContent=open?'Expand ↓':'Collapse ↑';
+}
+
+function toggleLLM(){
+  const body=document.getElementById('llm-body');
+  const btn=document.getElementById('llm-tog');
+  const open=body.style.display==='block';
+  body.style.display=open?'none':'block';
+  btn.textContent=open?'Expand ↓':'Collapse ↑';
+}
+
+function downloadResume(e){
+  e.preventDefault();
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Bhuvaneshwari_Thammanaboina_PM_Resume.html';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+
+
+</body></html>
