@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why LLM Products Need a "Confidence Architecture" · BT.pm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #1a1a1a;
+    --border: #222222;
+    --border2: #2e2e2e;
+    --text: #e8e6e0;
+    --text2: #888780;
+    --text3: #555550;
+    --accent: #4ade80;
+    --accent2: #22c55e;
+    --accent-dim: rgba(74,222,128,0.08);
+    --accent-dim2: rgba(74,222,128,0.15);
+    --blue: #60a5fa;
+    --blue-dim: rgba(96,165,250,0.08);
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text2);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-back {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text2);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border2);
+    padding: 5px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .nav-back:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.2);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.06em;
+  }
+  .hero-tag::before { content: '//'; opacity: 0.5; }
+  .hero h1 {
+    font-family: var(--sans);
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text2);
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-dim2);
+    border: 1px solid rgba(74,222,128,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .author-info p { font-size: 13px; color: var(--text); font-weight: 500; }
+  .author-info span { font-size: 11px; color: var(--text3); font-family: var(--mono); }
+  .meta-pills {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .meta-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .meta-pill::before { content: '·'; color: var(--border2); }
+
+  /* STATS BAR */
+  .stats-bar {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .stat-cell {
+    background: var(--bg);
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--mono);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 11px;
+    color: var(--text3);
+    font-family: var(--mono);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* ARTICLE BODY */
+  .article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .article-main { padding: 3rem 0; }
+
+  .section-comment {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-comment::before { content: '//'; color: var(--accent); opacity: 0.6; }
+
+  .article-main h2 {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2.5rem;
+  }
+  .article-main h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+
+  .article-main p {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+  .article-main p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .callout {
+    background: var(--accent-dim);
+    border-left: 2px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .code-block {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.75;
+    position: relative;
+  }
+  .code-block::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .code-block .k { color: var(--accent); }
+  .code-block .v { color: var(--blue); }
+  .code-block .c { color: var(--text3); }
+
+  .arch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin: 1.5rem 0;
+    border: 1px solid var(--border);
+  }
+  .arch-cell {
+    background: var(--bg2);
+    padding: 1.25rem;
+  }
+  .arch-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .arch-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .arch-desc {
+    font-size: 12px;
+    color: var(--text3);
+    line-height: 1.55;
+  }
+
+  .step-list { list-style: none; margin: 1.25rem 0; }
+  .step-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 28px;
+    padding-top: 2px;
+  }
+  .step-content p { font-size: 14px; color: var(--text); font-weight: 500; margin-bottom: 3px; }
+  .step-content span { font-size: 12px; color: var(--text3); line-height: 1.5; }
+
+  .okr-block {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .okr-block .o-line {
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    font-size: 12px;
+  }
+  .okr-block .o-line::before { content: 'O: '; color: var(--accent); }
+  .okr-block .kr-line {
+    color: var(--text3);
+    padding-left: 1rem;
+    margin-bottom: 5px;
+    font-size: 11px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .okr-block .kr-line::before { content: '✓'; color: var(--accent); flex-shrink: 0; }
+  .okr-block .achieved { color: var(--accent); }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.25rem 0; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+    border: 1px solid var(--border2);
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+  .tag.active { color: var(--accent); border-color: rgba(74,222,128,0.3); background: var(--accent-dim); }
+
+  /* SIDEBAR */
+  .sidebar {
+    padding-top: 3rem;
+    position: sticky;
+    top: 72px;
+  }
+  .sidebar-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-section:last-child { border-bottom: none; }
+  .sidebar-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .toc-list { list-style: none; }
+  .toc-list li { margin-bottom: 6px; }
+  .toc-list a {
+    font-size: 12px;
+    color: var(--text3);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    line-height: 1.5;
+    padding-left: 10px;
+    border-left: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .toc-list a:hover, .toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+  .sidebar-stat { margin-bottom: 8px; }
+  .sidebar-stat .s-num {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .sidebar-stat .s-lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text3);
+    display: block;
+  }
+  .profile-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .profile-mini p { font-size: 12px; color: var(--text); font-weight: 500; }
+  .profile-mini span { font-size: 11px; color: var(--text3); font-family: var(--mono); display: block; }
+  .sidebar-links { display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .sidebar-link:hover { color: var(--accent); }
+  .sidebar-link::before { content: '→'; color: var(--accent); opacity: 0.5; }
+
+  /* FOOTER */
+  .article-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  .footer-inner {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-author { display: flex; align-items: center; gap: 12px; }
+  .footer-author-info p { font-size: 14px; font-weight: 500; color: var(--text); }
+  .footer-author-info span { font-size: 12px; color: var(--text3); font-family: var(--mono); }
+  .footer-links { display: flex; gap: 12px; }
+  .footer-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    padding: 5px 12px;
+    transition: all 0.2s;
+  }
+  .footer-link:hover { color: var(--accent); border-color: rgba(74,222,128,0.3); }
+
+  .page-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+  }
+  .page-footer a { color: var(--accent); text-decoration: none; }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 200;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  @media (max-width: 640px) {
+    .article { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .arch-grid { grid-template-columns: 1fr; }
+    .stats-bar { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav>
+  <a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html" class="nav-logo">BT.pm</a>
+  <ul class="nav-links">
+    <li><a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html#process">Process</a></li>
+    <li><a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html#casestudies">Work</a></li>
+    <li><a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html#blog">Teardowns</a></li>
+    <li><a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html#contact">Contact</a></li>
+  </ul>
+  <a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html#blog" class="nav-back">← All teardowns</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">AI PRODUCT THINKING</div>
+  <h1>Why LLM products need a "confidence architecture"</h1>
+  <p class="hero-sub">Most AI product failures aren't model failures — they're product failures. How I think about thresholds, fallbacks, and human-in-the-loop design — and the lessons from shipping a live LLM triage system.</p>
+  <div class="hero-meta">
+    <div class="hero-author">
+      <div class="avatar">BT</div>
+      <div class="author-info">
+        <p>Bhuvaneshwari Thammanaboina</p>
+        <span>APM · Deepta.AI &amp; Apxor · Hyderabad</span>
+      </div>
+    </div>
+    <div class="meta-pills">
+      <span class="meta-pill">5 min read</span>
+      <span class="meta-pill">May 2026</span>
+      <span class="meta-pill">AI / LLM Products</span>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-cell">
+    <span class="stat-num">−30%</span>
+    <span class="stat-lbl">REPEAT QUERIES</span>
+  </div>
+  <div class="stat-cell">
+    <span class="stat-num">−15%</span>
+    <span class="stat-lbl">FIRST-RESPONSE TIME</span>
+  </div>
+  <div class="stat-cell">
+    <span class="stat-num">85%</span>
+    <span class="stat-lbl">CONFIDENCE THRESHOLD</span>
+  </div>
+</div>
+
+<div class="article">
+  <main class="article-main">
+
+    <h2 id="problem">The problem nobody talks about</h2>
+    <div class="section-comment">CONTEXT · WHY THIS MATTERS</div>
+    <p>When an LLM product fails, the instinct is to blame the model — wrong prompt, wrong temperature, hallucination. But having shipped LLM products at Deepta.AI and Apxor, the most common failures I've seen happen above the model layer entirely. They live in product design decisions: <strong>when do you trust the AI, when do you pause it, and when do you hand control back to a human?</strong></p>
+    <p>I call this the confidence architecture problem. It's entirely a product responsibility — not engineering, not data science. And it's the thing most AI PM conversations skip straight past.</p>
+
+    <div class="callout">
+      // DEFINITION<br>
+      A confidence architecture is the product logic layer that governs what your AI does — and doesn't do — based on how certain it is about its output.
+    </div>
+
+    <h2 id="realworld">A real example: LLM triage at Deepta.AI</h2>
+    <div class="section-comment">CASE STUDY · DEEPTA.AI SUPPORT AUTOMATION</div>
+    <p>At Deepta.AI, I led the product definition for an LLM-powered support triage system built on Zammad (open-source ticketing). We were solving a real problem: support teams overwhelmed by repeated, predictable L1 queries, SLA breaches rising, agents stuck on triage instead of complex cases.</p>
+    <p>The architecture looked like this: user query → moderation → intent detection → RAG retrieval → LLM processing → action. Early versions auto-resolved tickets whenever the model returned a response. Escalation rates looked great on paper. Then CSAT scores started dropping.</p>
+
+    <div class="code-block" data-label="// ARCHITECTURE · DEEPTA.AI LLM TRIAGE PIPELINE">
+      <span class="c">USER QUERY</span><br>
+      &nbsp;&nbsp;<span class="k">↓</span> moderation layer — content safety<br>
+      &nbsp;&nbsp;<span class="k">↓</span> intent detection — billing / tech / escalation<br>
+      &nbsp;&nbsp;<span class="k">↓</span> RAG retrieval — KB articles, history<br>
+      &nbsp;&nbsp;<span class="k">↓</span> LLM processing — contextual response<br>
+      &nbsp;&nbsp;<span class="k">↓</span> <span class="v">CONFIDENCE CHECK</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">≥ 85%</span> → auto-resolve → Zammad ticket<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">&lt; 85%</span> → escalate → agent (model draft as assist)<br>
+      &nbsp;&nbsp;<span class="k">↓</span> satisfaction survey → feedback loop
+    </div>
+
+    <p>The model was generating confident-sounding answers. They were often wrong. The fix wasn't retraining the model or adjusting the prompt. It was adding a confidence layer between the LLM output and the action taken.</p>
+    <p>Tickets with over 85% similarity to previously resolved cases auto-resolved. Everything below routed to a human agent — with the model's draft as a starting point, not a final answer. Result: <strong>repeat queries dropped 30%, first-response time fell 15%</strong>, and satisfaction scores recovered within two sprints.</p>
+
+    <h2 id="layers">Three layers every LLM product needs</h2>
+    <div class="section-comment">FRAMEWORK · CONFIDENCE ARCHITECTURE COMPONENTS</div>
+
+    <div class="arch-grid">
+      <div class="arch-cell">
+        <div class="arch-num">01 · THRESHOLDS</div>
+        <div class="arch-title">Confidence thresholds</div>
+        <div class="arch-desc">Define the score above which the AI acts autonomously. Not all actions need the same bar — a suggestion needs lower confidence than an auto-send or an auto-close.</div>
+      </div>
+      <div class="arch-cell">
+        <div class="arch-num">02 · FALLBACKS</div>
+        <div class="arch-title">Fallback logic</div>
+        <div class="arch-desc">When confidence is low, what happens? A blank screen is a product failure. A graceful escalation, clarifying question, or "here's what I'm unsure about" is a design decision.</div>
+      </div>
+      <div class="arch-cell">
+        <div class="arch-num">03 · HUMAN GATES</div>
+        <div class="arch-title">Human-in-the-loop gates</div>
+        <div class="arch-desc">Identify irreversible actions. Sending, deleting, charging — these always need a human checkpoint, regardless of model confidence score.</div>
+      </div>
+    </div>
+
+    <p>These aren't engineering constraints — they're product decisions. The engineering team can implement any threshold you define. Your job as PM is to decide what the right threshold is, what the fallback UX looks like, and which actions are irreversible enough to always require human review.</p>
+
+    <h2 id="mapping">How to map your own confidence architecture</h2>
+    <div class="section-comment">PM PROCESS · DISCOVERY TO IMPLEMENTATION</div>
+    <p>Start by auditing every action your LLM product can take. This is a research exercise, not a technical one — interview your support team, review your ticket logs, watch session recordings of your AI product in action. Then rank each action by two dimensions:</p>
+
+    <ul class="step-list">
+      <li>
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <p>Map all AI actions</p>
+          <span>List every action the LLM can trigger — auto-reply, auto-categorize, auto-escalate, auto-close, suggest, draft. Be exhaustive.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <p>Assign risk tiers by reversibility × impact</p>
+          <span>High impact + irreversible = Tier 1 (human gate required). Low impact + reversible = Tier 3 (safe to automate fully). Tier 2 in between.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <p>Set a confidence threshold per tier</p>
+          <span>Tier 1: no auto-action regardless of confidence. Tier 2: 85%+ for automation. Tier 3: 60%+ acceptable. These are starting points — instrument and adjust.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <p>Design the fallback UX</p>
+          <span>For every low-confidence path, design a non-failure state. An agent assist panel, a clarifying question flow, a "here's what I found, does this help?" prompt. The model's draft is a feature, not a failure.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">05</span>
+        <div class="step-content">
+          <p>Instrument every path, then iterate</p>
+          <span>Confidence architecture only improves if you measure how often each path fires. Add logging from day one. Review weekly against your CSAT and resolution-rate KPIs.</span>
+        </div>
+      </li>
+    </ul>
+
+    <h2 id="okr">The OKR lens</h2>
+    <div class="section-comment">METHODOLOGY · TYING THRESHOLDS TO KEY RESULTS</div>
+    <p>At Apxor, every roadmap decision I made was tied to quarterly OKRs. The same principle applies to confidence architecture — your thresholds should be tied to a key result, not to what "feels safe." Here's what our OKRs looked like for the Deepta.AI triage product:</p>
+
+    <div class="okr-block">
+      <div class="o-line">Reduce L1 support load through intelligent automation</div>
+      <div class="kr-line">Reduce repeated queries by 25%+ <span class="achieved">(achieved 30%)</span></div>
+      <div class="kr-line">Improve first-response time by 10%+ <span class="achieved">(achieved 15%)</span></div>
+      <div class="kr-line">Launch chatbot deflection with 70%+ case categorization accuracy <span class="achieved">(achieved 85%)</span></div>
+    </div>
+
+    <p>If CSAT is your KR, the threshold moves higher — you'd rather escalate more and let agents handle it than risk a wrong auto-resolution. If deflection rate is your KR, the threshold moves lower. <strong>Define what winning looks like first. Then tune the confidence layer against that number.</strong></p>
+
+    <h2 id="takeaway">Takeaway for PMs</h2>
+    <div class="section-comment">CONCLUSION · WHAT TO DO WITH THIS</div>
+    <p>You don't need to be an ML engineer to own confidence architecture. You need to answer four questions for every AI action in your product:</p>
+
+    <div class="callout">
+      // THE FOUR QUESTIONS<br>
+      1. What can my AI do?<br>
+      2. What's the cost if it's wrong?<br>
+      3. At what confidence should I trust it?<br>
+      4. What happens when I don't?
+    </div>
+
+    <p>Answer those four questions and you've got the foundation. The layer that separates AI products that erode trust from ones that build it isn't the model — it's the product logic wrapping it.</p>
+    <p>LLMs are capabilities, not features. The confidence architecture is how you turn a capability into a product decision your users can trust.</p>
+
+    <div class="tag-row">
+      <span class="tag active">LLM Products</span>
+      <span class="tag active">AI Product Thinking</span>
+      <span class="tag">OKRs</span>
+      <span class="tag">Confidence Thresholds</span>
+      <span class="tag">Human-in-the-Loop</span>
+      <span class="tag">B2B SaaS</span>
+      <span class="tag">Support Automation</span>
+    </div>
+
+  </main>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">// TABLE OF CONTENTS</div>
+      <ul class="toc-list">
+        <li><a href="#problem">The problem</a></li>
+        <li><a href="#realworld">Real example: Deepta.AI</a></li>
+        <li><a href="#layers">Three layers</a></li>
+        <li><a href="#mapping">How to map yours</a></li>
+        <li><a href="#okr">The OKR lens</a></li>
+        <li><a href="#takeaway">Takeaway</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">// OUTCOMES</div>
+      <div class="sidebar-stat">
+        <span class="s-num">−30%</span>
+        <span class="s-lbl">Repeat queries</span>
+      </div>
+      <div class="sidebar-stat">
+        <span class="s-num">−15%</span>
+        <span class="s-lbl">First-response time</span>
+      </div>
+      <div class="sidebar-stat">
+        <span class="s-num">85%</span>
+        <span class="s-lbl">Confidence threshold</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">// AUTHOR</div>
+      <div class="profile-mini">
+        <div class="avatar">BT</div>
+        <div>
+          <p>Bhuvaneshwari T.</p>
+          <span>APM · Hyderabad</span>
+        </div>
+      </div>
+      <div class="sidebar-links">
+        <a href="https://www.linkedin.com/in/bhuvaneshwari-thammanaboina-8a3456255/" class="sidebar-link" target="_blank">LinkedIn</a>
+        <a href="mailto:bhuvaneshwarithammanaboina@gmail.com" class="sidebar-link">Email</a>
+        <a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html" class="sidebar-link">Portfolio</a>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">// MORE TEARDOWNS</div>
+      <div class="sidebar-links">
+        <a href="#" class="sidebar-link">Mixpanel vs Amplitude</a>
+        <a href="#" class="sidebar-link">Writing OKRs that work</a>
+        <a href="#" class="sidebar-link">GTM for AI products</a>
+        <a href="#" class="sidebar-link">Frequency curves & retention</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="article-footer">
+  <div class="footer-inner">
+    <div class="footer-author">
+      <div class="avatar">BT</div>
+      <div class="footer-author-info">
+        <p>Bhuvaneshwari Thammanaboina</p>
+        <span>APM · Deepta.AI &amp; Apxor · Hyderabad, India</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/bhuvaneshwari-thammanaboina-8a3456255/" class="footer-link" target="_blank">LinkedIn ↗</a>
+      <a href="mailto:bhuvaneshwarithammanaboina@gmail.com" class="footer-link">Email ↗</a>
+      <a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html#blog" class="footer-link">All Teardowns ↗</a>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer">
+  © 2026 · <a href="https://bhuvaneshwaritportfolio.lovable.app/resume.html">BT.pm</a> · Bhuvaneshwari Thammanaboina · Associate Product Manager
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = Math.min(pct, 100) + '%';
+  });
+
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const sections = document.querySelectorAll('h2[id]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
