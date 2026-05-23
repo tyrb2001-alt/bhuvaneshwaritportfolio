@@ -10,50 +10,53 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#faf9f7;--bg2:#f2f0ec;--bg3:#e8e4de;--bg4:#d9d3c8;
-  --border:rgba(42,36,28,0.12);--border2:rgba(42,36,28,0.22);
-  --ink:#1a1410;--ink2:#3d3328;--ink3:#7a6e62;
-  --accent:#1a1410;--accent-dim:rgba(42,36,28,0.06);
+  --bg:#0d0d0d;--bg2:#151515;--bg3:#1c1c1c;--bg4:#262626;
+  --border:rgba(240,237,232,0.08);--border2:rgba(240,237,232,0.16);
+  --ink:#f0ede8;--ink2:#c4c1ba;--ink3:#888880;
+  --accent:#4ade80;--accent-alt:#a3e635;--accent-dim:rgba(74,222,128,0.12);
   --serif:'DM Serif Display',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
   --mono:'DM Mono',monospace;
 }
 html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden;font-style:normal}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink2);font-size:16px;line-height:1.7;overflow-x:hidden;font-style:normal}
 *{font-style:normal!important}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--ink);border-radius:2px}
+::selection{background:var(--accent);color:#0d0d0d}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(250,249,247,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(13,13,13,0.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:var(--serif);font-size:1rem;color:var(--ink);text-decoration:none;letter-spacing:0.02em;font-weight:400}
+.nav-logo::after{content:'.';color:var(--accent)}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:0.72rem;font-weight:500;color:var(--ink3);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{font-size:0.72rem;font-weight:500;color:var(--ink);background:var(--bg);border:1px solid var(--ink);padding:0.4rem 1rem;border-radius:3px;text-decoration:none;letter-spacing:0.06em;transition:all 0.2s}
-.nav-cta:hover{background:var(--ink);color:var(--bg)}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{font-size:0.72rem;font-weight:600;color:#0d0d0d;background:var(--accent);border:1px solid var(--accent);padding:0.45rem 1rem;border-radius:3px;text-decoration:none;letter-spacing:0.06em;transition:all 0.2s}
+.nav-cta:hover{background:var(--accent-alt);border-color:var(--accent-alt);box-shadow:0 0 24px rgba(74,222,128,0.35)}
 
 section{padding:7rem 0}
 .container{max-width:1140px;margin:0 auto;padding:0 2.5rem}
-.eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--mono);font-size:0.7rem;color:var(--ink3);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem}
-.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
 h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:0.5rem}
-.hl{color:var(--ink)}
+.hl{color:var(--accent)}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden;background:var(--bg)}
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 30%,rgba(74,222,128,0.08),transparent 50%),radial-gradient(circle at 80% 70%,rgba(163,230,53,0.05),transparent 50%),var(--bg)}
 #hero::before{display:none}
 .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center;width:100%}
-.hero-mono{font-family:var(--mono);font-size:0.72rem;color:var(--ink3);letter-spacing:0.14em;margin-bottom:1.25rem}
+.hero-mono{font-family:var(--mono);font-size:0.72rem;color:var(--accent);letter-spacing:0.14em;margin-bottom:1.25rem}
 .hero-name{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:400;line-height:0.95;color:var(--ink);margin-bottom:0.4rem}
-.hero-name span{display:block;color:var(--ink);font-weight:400}
+.hero-name span{display:block;color:var(--accent);font-weight:400}
 .hero-role{font-family:var(--mono);font-size:0.8rem;color:var(--ink3);margin-bottom:1.5rem;letter-spacing:0.06em}
 .hero-bio{font-size:0.95rem;color:var(--ink2);line-height:1.8;max-width:500px;margin-bottom:2rem}
 .tags{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:2.5rem}
 .tag{font-family:var(--mono);font-size:0.62rem;padding:0.28rem 0.7rem;border-radius:2px;border:1px solid var(--border2);letter-spacing:0.05em;color:var(--ink2);background:var(--bg2)}
-.tag-g,.tag-o,.tag-b,.tag-y{border-color:var(--border2);color:var(--ink2);background:var(--bg2)}
+.tag-g{border-color:rgba(74,222,128,0.35);color:var(--accent);background:rgba(74,222,128,0.06)}
+.tag-o,.tag-b,.tag-y{border-color:var(--border2);color:var(--ink2);background:var(--bg2)}
 .btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;font-family:var(--sans);font-size:0.82rem;font-weight:500;text-decoration:none;border-radius:3px;transition:all 0.2s}
-.btn-a{background:var(--bg);color:var(--ink);border:1.5px solid var(--ink)}.btn-a:hover{background:var(--ink);color:var(--bg)}
-.btn-g{background:var(--bg);color:var(--ink);border:1.5px solid var(--ink)}.btn-g:hover{background:var(--ink);color:var(--bg)}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.85rem;font-family:var(--sans);font-size:0.82rem;font-weight:600;text-decoration:none;border-radius:3px;transition:all 0.25s;letter-spacing:0.03em}
+.btn-a{background:var(--accent);color:#0d0d0d;border:1.5px solid var(--accent);box-shadow:0 0 0 rgba(74,222,128,0)}.btn-a:hover{background:var(--accent-alt);border-color:var(--accent-alt);box-shadow:0 8px 32px rgba(74,222,128,0.3);transform:translateY(-2px)}
+.btn-g{background:transparent;color:var(--ink);border:1.5px solid var(--border2)}.btn-g:hover{border-color:var(--accent);color:var(--accent)}
 
 /* DASHBOARD */
 .dash{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -70,7 +73,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color
 .br{margin-bottom:0.85rem}
 .brl{display:flex;justify-content:space-between;font-size:0.62rem;color:var(--ink3);margin-bottom:0.3rem;letter-spacing:0.03em}
 .bt{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
-.bf{height:100%;border-radius:2px;background:var(--ink)}
+.bf{height:100%;border-radius:2px;background:var(--accent)}
 .ml-list{display:flex;flex-direction:column;gap:0.35rem}
 .ml-item{display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;padding:0.38rem 0.6rem;background:var(--bg3);border-radius:4px}
 .ml-item span{color:var(--ink2)}
@@ -89,7 +92,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color
 .psteps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:var(--border2);z-index:0}
 .ps{text-align:center;padding:0 0.75rem;position:relative;z-index:1}
 .ps-n{width:54px;height:54px;border-radius:50%;border:1.5px solid var(--ink);background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.72rem;color:var(--ink);margin:0 auto 1rem;transition:all 0.3s;font-weight:500}
-.ps:hover .ps-n{background:var(--ink);color:var(--bg)}
+.ps:hover .ps-n{background:var(--accent);color:var(--bg)}
 .ps-t{font-family:var(--serif);font-size:0.9rem;font-weight:400;color:var(--ink);margin-bottom:0.4rem}
 .ps-d{font-size:0.73rem;color:var(--ink3);line-height:1.55}
 .ps-tools{margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.25rem;justify-content:center}
@@ -125,10 +128,10 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color
 .cs-st{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.65rem;margin-top:1.25rem}
 .csbul{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
 .csbul li{font-size:0.84rem;color:var(--ink2);padding-left:1.2rem;position:relative;line-height:1.6}
-.csbul li::before{content:'▸';position:absolute;left:0;color:var(--ink);font-size:0.62rem;top:0.25rem}
+.csbul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:0.62rem;top:0.25rem}
 .csbul li strong{color:var(--ink)}
 .tog{font-family:var(--mono);font-size:0.62rem;color:var(--ink);border:1px solid var(--ink);background:var(--bg);padding:0.38rem 0.85rem;border-radius:3px;cursor:pointer;white-space:nowrap;transition:all 0.2s;align-self:flex-start;margin-top:0.2rem}
-.tog:hover{background:var(--ink);color:var(--bg)}
+.tog:hover{background:var(--accent);color:var(--bg)}
 
 /* SKILLS */
 #skills{background:var(--bg)}
@@ -139,7 +142,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color
 .sk-n{font-size:0.82rem;color:var(--ink)}
 .sk-p{font-family:var(--mono);font-size:0.65rem;color:var(--ink3)}
 .sk-tr{height:3px;background:var(--bg3);border-radius:1.5px;overflow:hidden}
-.sk-fi{height:100%;border-radius:1.5px;background:var(--ink)}
+.sk-fi{height:100%;border-radius:1.5px;background:var(--accent)}
 .tm{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
 .tg{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.25rem}
 .tgn{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.7rem}
@@ -168,7 +171,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color
 .okr-obj{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.35rem}
 .okr-krs{list-style:none;display:flex;flex-direction:column;gap:0.22rem;margin-bottom:1rem}
 .okr-krs li{font-size:0.75rem;color:var(--ink3);padding-left:1rem;position:relative}
-.okr-krs li::before{content:'KR';position:absolute;left:0;font-family:var(--mono);font-size:0.52rem;color:var(--ink);top:0.15rem}
+.okr-krs li::before{content:'KR';position:absolute;left:0;font-family:var(--mono);font-size:0.52rem;color:var(--accent);top:0.15rem}
 .edu-c{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:1rem}
 .edu-d{font-family:var(--serif);font-size:0.92rem;font-weight:400;color:var(--ink);margin-bottom:0.18rem}
 .edu-s{font-size:0.76rem;color:var(--ink3);margin-bottom:0.35rem}
@@ -182,7 +185,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color
 .jti::before{content:'';position:absolute;left:8px;top:18px;bottom:0;width:1px;background:var(--border)}
 .jti:last-child::before{display:none}
 .jd{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--ink);background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.jdi{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.jdi{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .jdate{font-family:var(--mono);font-size:0.6rem;color:var(--ink3);margin-bottom:0.18rem}
 .jev{font-size:0.79rem;color:var(--ink)}
 
@@ -191,7 +194,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color
 .con-lay{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .con-left p{font-size:0.92rem;color:var(--ink2);line-height:1.8;margin-bottom:1.5rem}
 .avail{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.68rem;color:var(--ink);background:var(--bg);border:1px solid var(--ink);padding:0.45rem 1rem;border-radius:3px;margin-bottom:1.5rem}
-.avail-d{width:6px;height:6px;border-radius:50%;background:var(--ink);animation:pulse 2s infinite}
+.avail-d{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 .clinks{display:flex;flex-direction:column;gap:0.7rem}
 .clink{display:flex;align-items:center;gap:1rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0.95rem 1.25rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s}
@@ -211,7 +214,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem;te
 .scroll-pill:hover{color:var(--ink)}
 .sp-index{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.16em;color:var(--ink3)}
 .sp-rule{position:relative;width:96px;height:1px;background:var(--border2);overflow:hidden}
-.sp-rule::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:var(--ink);animation:ruleSlide 2.2s cubic-bezier(.7,0,.3,1) infinite}
+.sp-rule::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:var(--accent);animation:ruleSlide 2.2s cubic-bezier(.7,0,.3,1) infinite}
 @keyframes ruleSlide{
   0%{left:-40%}
   60%{left:100%}
@@ -351,9 +354,9 @@ nav{padding:1.1rem 2rem}
         <div class="mc"><div class="mv bv">−15%</div><div class="ml">Response Time</div><div class="md bv">↓ Automation</div></div>
         <div class="mc"><div class="mv yv">+7%</div><div class="ml">CTR Uplift</div><div class="md yv">↑ A/B Test</div></div>
       </div>
-      <div class="br"><div class="brl"><span>AI / LLM Product Thinking</span></div><div class="bt"><div class="bf" style="width:88%;background:var(--ink)"></div></div></div>
-      <div class="br"><div class="brl"><span>OKRs &amp; Roadmapping</span></div><div class="bt"><div class="bf" style="width:93%;background:var(--ink)"></div></div></div>
-      <div class="br"><div class="brl"><span>Analytics &amp; Metrics</span></div><div class="bt"><div class="bf" style="width:86%;background:var(--ink)"></div></div></div>
+      <div class="br"><div class="brl"><span>AI / LLM Product Thinking</span></div><div class="bt"><div class="bf" style="width:88%;background:var(--accent)"></div></div></div>
+      <div class="br"><div class="brl"><span>OKRs &amp; Roadmapping</span></div><div class="bt"><div class="bf" style="width:93%;background:var(--accent)"></div></div></div>
+      <div class="br"><div class="brl"><span>Analytics &amp; Metrics</span></div><div class="bt"><div class="bf" style="width:86%;background:var(--accent)"></div></div></div>
       <div class="ml-list">
         <div class="ml-item"><span>Deepta.AI — APM</span><span class="badge" style="background:var(--bg2);color:var(--ink)">Active</span></div>
         <div class="ml-item"><span>Apxor Tech — 2yr APM</span><span class="badge" style="background:var(--bg3);color:var(--ink3)">✓</span></div>
@@ -552,14 +555,14 @@ nav{padding:1.1rem 2rem}
     <div>
       <div class="sk-st">// Core Competencies</div>
       <div class="skrows">
-        <div><div class="skr-top"><span class="sk-n">OKRs &amp; Roadmapping</span></div><div class="sk-tr"><div class="sk-fi" style="width:95%;background:var(--ink)"></div></div></div>
-        <div><div class="skr-top"><span class="sk-n">AI / LLM Product Thinking</span></div><div class="sk-tr"><div class="sk-fi" style="width:88%;background:var(--ink)"></div></div></div>
-        <div><div class="skr-top"><span class="sk-n">Agile &amp; Sprint Planning</span></div><div class="sk-tr"><div class="sk-fi" style="width:93%;background:var(--ink)"></div></div></div>
-        <div><div class="skr-top"><span class="sk-n">PRD / MRD / User Stories</span></div><div class="sk-tr"><div class="sk-fi" style="width:92%;background:var(--ink)"></div></div></div>
-        <div><div class="skr-top"><span class="sk-n">Analytics &amp; Metrics Definition</span></div><div class="sk-tr"><div class="sk-fi" style="width:87%;background:var(--ink)"></div></div></div>
-        <div><div class="skr-top"><span class="sk-n">User Research &amp; Discovery</span></div><div class="sk-tr"><div class="sk-fi" style="width:84%;background:var(--ink)"></div></div></div>
-        <div><div class="skr-top"><span class="sk-n">A/B Testing &amp; Experimentation</span></div><div class="sk-tr"><div class="sk-fi" style="width:80%;background:var(--ink)"></div></div></div>
-        <div><div class="skr-top"><span class="sk-n">Go-To-Market Strategy</span></div><div class="sk-tr"><div class="sk-fi" style="width:74%;background:var(--ink)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">OKRs &amp; Roadmapping</span></div><div class="sk-tr"><div class="sk-fi" style="width:95%;background:var(--accent)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">AI / LLM Product Thinking</span></div><div class="sk-tr"><div class="sk-fi" style="width:88%;background:var(--accent)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">Agile &amp; Sprint Planning</span></div><div class="sk-tr"><div class="sk-fi" style="width:93%;background:var(--accent)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">PRD / MRD / User Stories</span></div><div class="sk-tr"><div class="sk-fi" style="width:92%;background:var(--accent)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">Analytics &amp; Metrics Definition</span></div><div class="sk-tr"><div class="sk-fi" style="width:87%;background:var(--accent)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">User Research &amp; Discovery</span></div><div class="sk-tr"><div class="sk-fi" style="width:84%;background:var(--accent)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">A/B Testing &amp; Experimentation</span></div><div class="sk-tr"><div class="sk-fi" style="width:80%;background:var(--accent)"></div></div></div>
+        <div><div class="skr-top"><span class="sk-n">Go-To-Market Strategy</span></div><div class="sk-tr"><div class="sk-fi" style="width:74%;background:var(--accent)"></div></div></div>
       </div>
     </div>
     <div>
@@ -567,10 +570,10 @@ nav{padding:1.1rem 2rem}
       <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:1.5rem">
         <p style="font-family:var(--mono);font-size:0.65rem;color:var(--ink);margin-bottom:1rem">// RICE = (Reach × Impact × Confidence) / Effort</p>
         <div style="display:flex;flex-direction:column;gap:0.85rem">
-          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>Contextual Engagement Suite</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 840</span></div><div class="bt"><div class="bf" style="width:92%;background:var(--ink)"></div></div></div>
-          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>Retention Analytics V2</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 720</span></div><div class="bt"><div class="bf" style="width:78%;background:var(--ink)"></div></div></div>
-          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>LLM Triage Automation</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 680</span></div><div class="bt"><div class="bf" style="width:74%;background:var(--ink)"></div></div></div>
-          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>In-App Design Builder</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 560</span></div><div class="bt"><div class="bf" style="width:60%;background:var(--ink)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>Contextual Engagement Suite</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 840</span></div><div class="bt"><div class="bf" style="width:92%;background:var(--accent)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>Retention Analytics V2</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 720</span></div><div class="bt"><div class="bf" style="width:78%;background:var(--accent)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>LLM Triage Automation</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 680</span></div><div class="bt"><div class="bf" style="width:74%;background:var(--accent)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ink2);margin-bottom:0.28rem"><span>In-App Design Builder</span><span style="font-family:var(--mono);color:var(--ink)">RICE: 560</span></div><div class="bt"><div class="bf" style="width:60%;background:var(--accent)"></div></div></div>
         </div>
       </div>
     </div>
@@ -724,10 +727,10 @@ nav{padding:1.1rem 2rem}
       </div>
       <div class="jt">
         <div class="jt-lab">// CAREER JOURNEY</div>
-        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">Sept 2025 – Present</div><div class="jev">APM · Deepta.AI — AI products, LLM triage, GTM</div></div></div>
-        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">Sept 2023 – Sept 2025</div><div class="jev">APM · Apxor — Engagement, analytics, Retention V2</div></div></div>
-        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">Mar – Sept 2023</div><div class="jev">Assoc. CSM · Apxor — Customer discovery, product inputs</div></div></div>
-        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--ink)"></div></div><div><div class="jdate">2019 – 2023</div><div class="jev">B.E. Engineering · Gold Medal, Rank 4</div></div></div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--accent)"></div></div><div><div class="jdate">Sept 2025 – Present</div><div class="jev">APM · Deepta.AI — AI products, LLM triage, GTM</div></div></div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--accent)"></div></div><div><div class="jdate">Sept 2023 – Sept 2025</div><div class="jev">APM · Apxor — Engagement, analytics, Retention V2</div></div></div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--accent)"></div></div><div><div class="jdate">Mar – Sept 2023</div><div class="jev">Assoc. CSM · Apxor — Customer discovery, product inputs</div></div></div>
+        <div class="jti"><div class="jd"><div class="jdi" style="background:var(--accent)"></div></div><div><div class="jdate">2019 – 2023</div><div class="jev">B.E. Engineering · Gold Medal, Rank 4</div></div></div>
       </div>
     </div>
   </div>
