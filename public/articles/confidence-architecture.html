@@ -5,27 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why LLM Products Need a "Confidence Architecture" · BT.pm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0a0a0a;
-    --bg2: #111111;
-    --bg3: #1a1a1a;
-    --border: #222222;
-    --border2: #2e2e2e;
-    --text: #e8e6e0;
-    --text2: #888780;
-    --text3: #555550;
-    --accent: #4ade80;
-    --accent2: #22c55e;
-    --accent-dim: rgba(74,222,128,0.08);
-    --accent-dim2: rgba(74,222,128,0.15);
-    --blue: #60a5fa;
-    --blue-dim: rgba(96,165,250,0.08);
-    --mono: 'JetBrains Mono', monospace;
-    --sans: 'DM Sans', sans-serif;
+    --bg: #faf9f7;
+    --bg2: #f2f0ec;
+    --bg3: #e8e4de;
+    --border: rgba(42,36,28,0.12);
+    --border2: rgba(42,36,28,0.22);
+    --text: #1a1410;
+    --text2: #3d3328;
+    --text3: #7a6e62;
+    --accent: #1a1410;
+    --accent2: #3d3328;
+    --accent-dim: rgba(42,36,28,0.06);
+    --accent-dim2: rgba(42,36,28,0.12);
+    --blue: #3d3328;
+    --blue-dim: rgba(42,36,28,0.06);
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --serif: 'DM Serif Display', Georgia, serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -44,7 +45,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10,10,10,0.92);
+    background: rgba(250,249,247,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 0 2rem;
@@ -106,7 +107,7 @@
     font-size: 11px;
     color: var(--accent);
     background: var(--accent-dim);
-    border: 1px solid rgba(74,222,128,0.2);
+    border: 1px solid rgba(42,36,28,0.18);
     padding: 4px 12px;
     border-radius: 2px;
     margin-bottom: 1.5rem;
@@ -114,13 +115,13 @@
   }
   .hero-tag::before { content: '//'; opacity: 0.5; }
   .hero h1 {
-    font-family: var(--sans);
-    font-size: clamp(26px, 4vw, 38px);
-    font-weight: 500;
-    line-height: 1.2;
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.05;
     color: var(--text);
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
   }
   .hero-sub {
     font-size: 17px;
@@ -146,7 +147,7 @@
     height: 36px;
     border-radius: 50%;
     background: var(--accent-dim2);
-    border: 1px solid rgba(74,222,128,0.3);
+    border: 1px solid rgba(42,36,28,0.22);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,15 +231,16 @@
   .section-comment::before { content: '//'; color: var(--accent); opacity: 0.6; }
 
   .article-main h2 {
-    font-family: var(--sans);
-    font-size: 20px;
-    font-weight: 500;
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    font-weight: 400;
     color: var(--text);
     margin-bottom: 1rem;
     letter-spacing: -0.01em;
     padding-top: 2.5rem;
     border-top: 1px solid var(--border);
     margin-top: 2.5rem;
+    line-height: 1.15;
   }
   .article-main h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
 
@@ -376,7 +378,7 @@
     border-radius: 2px;
     letter-spacing: 0.04em;
   }
-  .tag.active { color: var(--accent); border-color: rgba(74,222,128,0.3); background: var(--accent-dim); }
+  .tag.active { color: var(--accent); border-color: rgba(42,36,28,0.22); background: var(--accent-dim); }
 
   /* SIDEBAR */
   .sidebar {
@@ -480,7 +482,7 @@
     padding: 5px 12px;
     transition: all 0.2s;
   }
-  .footer-link:hover { color: var(--accent); border-color: rgba(74,222,128,0.3); }
+  .footer-link:hover { color: var(--accent); border-color: rgba(42,36,28,0.22); }
 
   .page-footer {
     border-top: 1px solid var(--border);
