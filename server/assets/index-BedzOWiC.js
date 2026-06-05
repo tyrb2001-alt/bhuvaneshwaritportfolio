@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 function Index() {
   useEffect(() => {
-    window.location.replace("/resume.html");
+    window.location.replace(`${"/bhuvaneshwaritportfolio/"}resume.html`);
   }, []);
   return null;
 }
