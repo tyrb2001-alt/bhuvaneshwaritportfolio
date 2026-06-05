@@ -7,7 +7,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   useEffect(() => {
-    window.location.replace("/resume.html");
+    window.location.replace(`${import.meta.env.BASE_URL}resume.html`);
   }, []);
   return null;
 }
