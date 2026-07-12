@@ -533,7 +533,7 @@
 <div class="hero">
   <div class="hero-tag">AI PRODUCT THINKING</div>
   <h1>Why LLM products need a "confidence architecture"</h1>
-  <p class="hero-sub">Most AI product failures aren't model failures — they're product failures. How I think about thresholds, fallbacks, and human-in-the-loop design — and the lessons from shipping a live LLM triage system.</p>
+  <p class="hero-sub">Most AI product failures aren't model failures. they're product failures. How I think about thresholds, fallbacks, and human-in-the-loop design. and the lessons from shipping a live LLM triage system.</p>
   <div class="hero-meta">
     <div class="hero-author">
       <div class="avatar">BT</div>
@@ -570,12 +570,12 @@
 
     <h2 id="problem">The problem nobody talks about</h2>
     <div class="section-comment">CONTEXT · WHY THIS MATTERS</div>
-    <p>When an LLM product fails, the instinct is to blame the model — wrong prompt, wrong temperature, hallucination. But having shipped LLM products at Deepta.AI and Apxor, the most common failures I've seen happen above the model layer entirely. They live in product design decisions: <strong>when do you trust the AI, when do you pause it, and when do you hand control back to a human?</strong></p>
-    <p>I call this the confidence architecture problem. It's entirely a product responsibility — not engineering, not data science. And it's the thing most AI PM conversations skip straight past.</p>
+    <p>When an LLM product fails, the instinct is to blame the model. wrong prompt, wrong temperature, hallucination. But having shipped LLM products at Deepta.AI and Apxor, the most common failures I've seen happen above the model layer entirely. They live in product design decisions: <strong>when do you trust the AI, when do you pause it, and when do you hand control back to a human?</strong></p>
+    <p>I call this the confidence architecture problem. It's entirely a product responsibility. not engineering, not data science. And it's the thing most AI PM conversations skip straight past.</p>
 
     <div class="callout">
       // DEFINITION<br>
-      A confidence architecture is the product logic layer that governs what your AI does — and doesn't do — based on how certain it is about its output.
+      A confidence architecture is the product logic layer that governs what your AI does. and doesn't do. based on how certain it is about its output.
     </div>
 
     <h2 id="realworld">A real example: LLM triage at Deepta.AI</h2>
@@ -585,10 +585,10 @@
 
     <div class="code-block" data-label="// ARCHITECTURE · DEEPTA.AI LLM TRIAGE PIPELINE">
       <span class="c">USER QUERY</span><br>
-      &nbsp;&nbsp;<span class="k">↓</span> moderation layer — content safety<br>
-      &nbsp;&nbsp;<span class="k">↓</span> intent detection — billing / tech / escalation<br>
-      &nbsp;&nbsp;<span class="k">↓</span> RAG retrieval — KB articles, history<br>
-      &nbsp;&nbsp;<span class="k">↓</span> LLM processing — contextual response<br>
+      &nbsp;&nbsp;<span class="k">↓</span> moderation layer. content safety<br>
+      &nbsp;&nbsp;<span class="k">↓</span> intent detection. billing / tech / escalation<br>
+      &nbsp;&nbsp;<span class="k">↓</span> RAG retrieval. KB articles, history<br>
+      &nbsp;&nbsp;<span class="k">↓</span> LLM processing. contextual response<br>
       &nbsp;&nbsp;<span class="k">↓</span> <span class="v">CONFIDENCE CHECK</span><br>
       &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">≥ 85%</span> → auto-resolve → Zammad ticket<br>
       &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">&lt; 85%</span> → escalate → agent (model draft as assist)<br>
@@ -596,7 +596,7 @@
     </div>
 
     <p>The model was generating confident-sounding answers. They were often wrong. The fix wasn't retraining the model or adjusting the prompt. It was adding a confidence layer between the LLM output and the action taken.</p>
-    <p>Tickets with over 85% similarity to previously resolved cases auto-resolved. Everything below routed to a human agent — with the model's draft as a starting point, not a final answer. Result: <strong>repeat queries dropped 30%, first-response time fell 15%</strong>, and satisfaction scores recovered within two sprints.</p>
+    <p>Tickets with over 85% similarity to previously resolved cases auto-resolved. Everything below routed to a human agent. with the model's draft as a starting point, not a final answer. Result: <strong>repeat queries dropped 30%, first-response time fell 15%</strong>, and satisfaction scores recovered within two sprints.</p>
 
     <h2 id="layers">Three layers every LLM product needs</h2>
     <div class="section-comment">FRAMEWORK · CONFIDENCE ARCHITECTURE COMPONENTS</div>
@@ -605,7 +605,7 @@
       <div class="arch-cell">
         <div class="arch-num">01 · THRESHOLDS</div>
         <div class="arch-title">Confidence thresholds</div>
-        <div class="arch-desc">Define the score above which the AI acts autonomously. Not all actions need the same bar — a suggestion needs lower confidence than an auto-send or an auto-close.</div>
+        <div class="arch-desc">Define the score above which the AI acts autonomously. Not all actions need the same bar. a suggestion needs lower confidence than an auto-send or an auto-close.</div>
       </div>
       <div class="arch-cell">
         <div class="arch-num">02 · FALLBACKS</div>
@@ -615,22 +615,22 @@
       <div class="arch-cell">
         <div class="arch-num">03 · HUMAN GATES</div>
         <div class="arch-title">Human-in-the-loop gates</div>
-        <div class="arch-desc">Identify irreversible actions. Sending, deleting, charging — these always need a human checkpoint, regardless of model confidence score.</div>
+        <div class="arch-desc">Identify irreversible actions. Sending, deleting, charging. these always need a human checkpoint, regardless of model confidence score.</div>
       </div>
     </div>
 
-    <p>These aren't engineering constraints — they're product decisions. The engineering team can implement any threshold you define. Your job as PM is to decide what the right threshold is, what the fallback UX looks like, and which actions are irreversible enough to always require human review.</p>
+    <p>These aren't engineering constraints. they're product decisions. The engineering team can implement any threshold you define. Your job as PM is to decide what the right threshold is, what the fallback UX looks like, and which actions are irreversible enough to always require human review.</p>
 
     <h2 id="mapping">How to map your own confidence architecture</h2>
     <div class="section-comment">PM PROCESS · DISCOVERY TO IMPLEMENTATION</div>
-    <p>Start by auditing every action your LLM product can take. This is a research exercise, not a technical one — interview your support team, review your ticket logs, watch session recordings of your AI product in action. Then rank each action by two dimensions:</p>
+    <p>Start by auditing every action your LLM product can take. This is a research exercise, not a technical one. interview your support team, review your ticket logs, watch session recordings of your AI product in action. Then rank each action by two dimensions:</p>
 
     <ul class="step-list">
       <li>
         <span class="step-num">01</span>
         <div class="step-content">
           <p>Map all AI actions</p>
-          <span>List every action the LLM can trigger — auto-reply, auto-categorize, auto-escalate, auto-close, suggest, draft. Be exhaustive.</span>
+          <span>List every action the LLM can trigger. auto-reply, auto-categorize, auto-escalate, auto-close, suggest, draft. Be exhaustive.</span>
         </div>
       </li>
       <li>
@@ -644,7 +644,7 @@
         <span class="step-num">03</span>
         <div class="step-content">
           <p>Set a confidence threshold per tier</p>
-          <span>Tier 1: no auto-action regardless of confidence. Tier 2: 85%+ for automation. Tier 3: 60%+ acceptable. These are starting points — instrument and adjust.</span>
+          <span>Tier 1: no auto-action regardless of confidence. Tier 2: 85%+ for automation. Tier 3: 60%+ acceptable. These are starting points. instrument and adjust.</span>
         </div>
       </li>
       <li>
@@ -665,7 +665,7 @@
 
     <h2 id="okr">The OKR lens</h2>
     <div class="section-comment">METHODOLOGY · TYING THRESHOLDS TO KEY RESULTS</div>
-    <p>At Apxor, every roadmap decision I made was tied to quarterly OKRs. The same principle applies to confidence architecture — your thresholds should be tied to a key result, not to what "feels safe." Here's what our OKRs looked like for the Deepta.AI triage product:</p>
+    <p>At Apxor, every roadmap decision I made was tied to quarterly OKRs. The same principle applies to confidence architecture. your thresholds should be tied to a key result, not to what "feels safe." Here's what our OKRs looked like for the Deepta.AI triage product:</p>
 
     <div class="okr-block">
       <div class="o-line">Reduce L1 support load through intelligent automation</div>
@@ -674,7 +674,7 @@
       <div class="kr-line">Launch chatbot deflection with 70%+ case categorization accuracy <span class="achieved">(achieved 85%)</span></div>
     </div>
 
-    <p>If CSAT is your KR, the threshold moves higher — you'd rather escalate more and let agents handle it than risk a wrong auto-resolution. If deflection rate is your KR, the threshold moves lower. <strong>Define what winning looks like first. Then tune the confidence layer against that number.</strong></p>
+    <p>If CSAT is your KR, the threshold moves higher. you'd rather escalate more and let agents handle it than risk a wrong auto-resolution. If deflection rate is your KR, the threshold moves lower. <strong>Define what winning looks like first. Then tune the confidence layer against that number.</strong></p>
 
     <h2 id="takeaway">Takeaway for PMs</h2>
     <div class="section-comment">CONCLUSION · WHAT TO DO WITH THIS</div>
@@ -688,7 +688,7 @@
       4. What happens when I don't?
     </div>
 
-    <p>Answer those four questions and you've got the foundation. The layer that separates AI products that erode trust from ones that build it isn't the model — it's the product logic wrapping it.</p>
+    <p>Answer those four questions and you've got the foundation. The layer that separates AI products that erode trust from ones that build it isn't the model. it's the product logic wrapping it.</p>
     <p>LLMs are capabilities, not features. The confidence architecture is how you turn a capability into a product decision your users can trust.</p>
 
     <div class="tag-row">
