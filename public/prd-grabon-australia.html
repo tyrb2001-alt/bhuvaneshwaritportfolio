@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GrabOn Australia — Launch PRD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f8fafc;
+    --border: #e2e8f0;
+    --ink: #0f172a;
+    --muted: #475569;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 64px 24px 96px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .tag {
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 500;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6vw, 56px);
+    line-height: 1.1;
+    margin: 0 0 20px;
+    letter-spacing: -0.02em;
+  }
+  .lede { font-size: 20px; color: var(--muted); margin: 0 0 40px; line-height: 1.5; }
+  .meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .meta .label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .meta .value { font-weight: 600; }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    margin: 56px 0 20px;
+    letter-spacing: -0.01em;
+  }
+  h3 { font-size: 18px; margin: 24px 0 10px; font-weight: 600; }
+  p { margin: 0 0 16px; }
+  ul { margin: 0 0 16px; padding-left: 22px; }
+  ul li { margin-bottom: 8px; }
+  ul li::marker { color: var(--accent); }
+  strong { color: var(--ink); font-weight: 600; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    background: var(--surface);
+  }
+  .card h3 { margin-top: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--surface); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  .prio { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .note { color: var(--muted); }
+  .phase { border-left: 3px solid var(--accent); padding: 6px 0 6px 18px; margin-bottom: 20px; }
+  .phase h3 { margin: 0 0 6px; }
+  .phase .when { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .metric { border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .metric .k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+  .callout {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin: 24px 0;
+  }
+  .footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; text-align: center; }
+  @media (max-width: 640px) {
+    .meta { grid-template-columns: repeat(2, 1fr); }
+    .grid-2, .metrics { grid-template-columns: 1fr; }
+    .wrap { padding: 40px 20px 64px; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="tags">
+    <span class="tag">PRD</span>
+    <span class="tag">v1.0</span>
+    <span class="tag">Market Entry</span>
+    <span class="tag">Draft for review</span>
+  </div>
+
+  <h1>GrabOn Australia — Launch PRD</h1>
+  <p class="lede">Launch GrabOn in Australia as a coupon-first platform, starting with the Indian diaspora, then expanding to mainstream shoppers.</p>
+
+  <div class="meta">
+    <div><div class="label">Owner</div><div class="value">Product Manager</div></div>
+    <div><div class="label">Status</div><div class="value">Proposed</div></div>
+    <div><div class="label">Timeline</div><div class="value">12 months</div></div>
+    <div><div class="label">Market</div><div class="value">Australia</div></div>
+  </div>
+
+  <h2>Summary</h2>
+  <p>Don't fight ShopBack and Cashrewards on cashback. Launch GrabOn as a <strong>coupon-first</strong> site for Australia's ~800K–1M Indian community, using GrabOn's existing AI content stack to keep costs low. Prove it, then expand.</p>
+
+  <h2>Problem</h2>
+  <ul>
+    <li>ShopBack and Cashrewards dominate cashback but have a trust gap: 30–90 day payout waits and disputes.</li>
+    <li>OzBargain wins on community but has no curation, no personalisation, no dedicated team.</li>
+    <li>No one is serving the Indian diaspora shopper deliberately, a large, digitally-active, value-conscious group.</li>
+  </ul>
+
+  <h2>Goals &amp; Non-Goals</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Goals</h3>
+      <ul>
+        <li>Win the Indian diaspora beachhead in Year 1.</li>
+        <li>Prove unit economics (CAC &lt; commission per user).</li>
+        <li>Build an SEO content moat cheaply using AI agents.</li>
+        <li>Sign 15–20 anchor merchants before public launch.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Non-Goals (V1)</h3>
+      <ul>
+        <li>No cashback product.</li>
+        <li>No broad paid-media brand war.</li>
+        <li>No GrabCash or GrabShare in Australia yet.</li>
+        <li>No mainstream categories in first 6 months.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Target User</h2>
+  <p><strong>Primary:</strong> Indian-origin shopper in Sydney, Melbourne, Brisbane, Perth (age 22–45).</p>
+  <p>They shop for:</p>
+  <ul>
+    <li>Flights to India, remittance-related services</li>
+    <li>Ethnic grocery and specialty retail</li>
+    <li>International telecom and prepaid plans</li>
+    <li>Electronics, gadgets, festival gifting (Diwali, Holi)</li>
+  </ul>
+  <p class="note"><strong>Secondary (Phase 2):</strong> international students, wider South/East Asian diaspora.</p>
+
+  <h2>User Stories</h2>
+  <div class="card" style="margin-bottom:12px;">As a diaspora shopper, I want a <strong>verified coupon</strong> that works at checkout so I save money instantly, no 90-day wait.</div>
+  <div class="card" style="margin-bottom:12px;">As a Diwali shopper, I want <strong>curated festival deals</strong> across flights, gifts and grocery in one place.</div>
+  <div class="card" style="margin-bottom:12px;">As a student, I want <strong>student-relevant deals</strong> on telecom, electronics and travel.</div>
+  <div class="card">As a merchant, I want a <strong>low-effort partner</strong> that brings a high-intent audience I don't reach today.</div>
+
+  <h2>Scope — V1 Features</h2>
+  <table>
+    <thead><tr><th>Feature</th><th>Priority</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Coupon browse + search</td><td><span class="prio">P0</span></td><td class="note">By category and store</td></tr>
+      <tr><td>Verified deal badges</td><td><span class="prio">P0</span></td><td class="note">Auto-verify via AI agent</td></tr>
+      <tr><td>Diaspora landing hubs</td><td><span class="prio">P0</span></td><td class="note">Flights to India, Diwali, telecom</td></tr>
+      <tr><td>SEO content library</td><td><span class="prio">P0</span></td><td class="note">Pre-built with AI agents</td></tr>
+      <tr><td>Email + WhatsApp alerts</td><td><span class="prio">P1</span></td><td class="note">Festival + price drops</td></tr>
+      <tr><td>Personalised deal feed</td><td><span class="prio">P1</span></td><td class="note">After signup, light ML</td></tr>
+      <tr><td>Cashback</td><td><span class="prio">P3</span></td><td class="note">Deferred, revisit month 9</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Rollout Plan</h2>
+  <div class="phase">
+    <div class="when">Phase 0 · Months −2 to 0</div>
+    <h3>Quiet build</h3>
+    <p>Localise stack (AUD, GST). Sign 15–20 anchor merchants. Pre-build SEO library.</p>
+  </div>
+  <div class="phase">
+    <div class="when">Phase 1 · Months 0–3</div>
+    <h3>Beachhead launch</h3>
+    <p>Launch via diaspora WhatsApp/Facebook groups and micro-influencers. Time public push around Diwali.</p>
+  </div>
+  <div class="phase">
+    <div class="when">Phase 2 · Months 3–6</div>
+    <h3>Adjacent segments</h3>
+    <p>Extend to international students and wider South/East Asian diaspora.</p>
+  </div>
+  <div class="phase">
+    <div class="when">Phase 3 · Months 6–12</div>
+    <h3>Go mainstream</h3>
+    <p>Only after CAC and retention are proven, broaden to fashion, home, everyday e-com.</p>
+  </div>
+
+  <h2>Success Metrics</h2>
+  <div class="metrics">
+    <div class="metric"><div class="k">North Star</div>Monthly transacting diaspora users</div>
+    <div class="metric"><div class="k">Input</div>Anchor merchants live · SEO pages ranking</div>
+    <div class="metric"><div class="k">Output</div>Activation rate · Day-60 repeat ≥ 15%</div>
+    <div class="metric"><div class="k">Business</div>CAC &lt; 0.5× commission/user · ~AUD 260K rev Y1</div>
+  </div>
+
+  <h2>Assumptions &amp; Risks</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Assumptions</h3>
+      <ul>
+        <li>Blended merchant commission ~5–7% of GMV.</li>
+        <li>800K–1M Indian-origin AU population, digitally active.</li>
+        <li>AI agent stack ports to AU at low marginal cost.</li>
+        <li>Lean team of 4–5 people is enough for Year 1.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Risks</h3>
+      <ul>
+        <li>Diaspora CAC higher than modelled, pause Phase 2.</li>
+        <li>Merchant sign-ups slower than expected.</li>
+        <li>Incumbents copy the diaspora angle.</li>
+        <li>SEO compounding takes longer than 6 months.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Kill / Rethink Signal</h2>
+  <div class="callout">
+    If cost per transacting user &gt; 2× commission per user by day 90, or Day-60 repeat rate &lt; 15%, pause Phase 2 spend and revisit segment or model before scaling further.
+  </div>
+
+  <h2>Budget (Year 1, AUD)</h2>
+  <table>
+    <thead><tr><th>Line item</th><th style="text-align:right;">Est. AUD</th></tr></thead>
+    <tbody>
+      <tr><td>Country GM (AU)</td><td style="text-align:right;">150,000</td></tr>
+      <tr><td>Merchant BD / ops (2)</td><td style="text-align:right;">160,000</td></tr>
+      <tr><td>Content / marketing lead</td><td style="text-align:right;">100,000</td></tr>
+      <tr><td>Legal / compliance</td><td style="text-align:right;">30,000</td></tr>
+      <tr><td>Launch &amp; community marketing</td><td style="text-align:right;">150,000</td></tr>
+      <tr><td>Tech / localisation (one-time)</td><td style="text-align:right;">60,000</td></tr>
+      <tr><td><strong>Total Year 1</strong></td><td style="text-align:right;"><strong>~650,000</strong></td></tr>
+    </tbody>
+  </table>
+  <p class="note">Year 1 revenue est.: ~AUD 260K. Net investment ~AUD 390K. Payback horizon: 24–36 months.</p>
+
+  <div class="footer">End of PRD · Based on GrabOn Australia Market Entry brief.</div>
+</main>
+</body>
+</html>
